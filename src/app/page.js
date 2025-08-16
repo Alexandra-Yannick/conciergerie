@@ -61,9 +61,9 @@ function Container({ children, className = "" }) {
 }
 
 const features = [
-  { icon: <Briefcase />, title: "Pensé pour la reconversion", desc: "Spécial pros de l'hôtellerie/restauration qui veulent lancer une conciergerie." },
+  { icon: <Briefcase />, title: "Pensé pour la reconversion", desc: "Spécial pros de l’hôtellerie/restauration qui veulent lancer une conciergerie." },
   { icon: <LineChart />, title: "29 h de contenu actionnable", desc: "Méthodes, matrices, calculs de prix, scénarios. Zéro blabla." },
-  { icon: <FileText />, title: "Fiches pratiques exclusives", desc: "Modèles, checklists et trames prêtes à l'emploi – réservées au pack." },
+  { icon: <FileText />, title: "Fiches pratiques exclusives", desc: "Modèles, checklists et trames prêtes à l’emploi – réservées au pack." },
   { icon: <Shield />, title: "Garantie 7 jours", desc: "Essayez sans risque. Remboursement si ça ne vous convient pas." },
 ];
 
@@ -71,8 +71,8 @@ const modules = [
   { title: "Module 1 — Mix Marketing & Rôle du Prix", time: "~5 h", benefit: "Construire un positionnement clair et cohérent.", icon: <Target /> },
   { title: "Module 2 — Pricing fondé sur la valeur perçue", time: "~6 h", benefit: "Fixer un prix crédible et justifiable.", icon: <Star /> },
   { title: "Module 3 — Performance & Rentabilité", time: "~7 h", benefit: "Calculer marges, seuil de rentabilité et élasticités.", icon: <LineChart /> },
-  { title: "Module 4 — Concurrence & Stratégie Prix", time: "~6 h", benefit: "Positionner l'offre face au marché et ajuster.", icon: <BookOpen /> },
-  { title: "Module 5 — Lancement & Déploiement", time: "~5 h", benefit: "Plan d'action go-to-market, scénarios de prix.", icon: <Rocket /> },
+  { title: "Module 4 — Concurrence & Stratégie Prix", time: "~6 h", benefit: "Positionner l’offre face au marché et ajuster.", icon: <BookOpen /> },
+  { title: "Module 5 — Lancement & Déploiement", time: "~5 h", benefit: "Plan d’action go-to-market, scénarios de prix.", icon: <Rocket /> },
 ];
 
 export default function Page() {
@@ -99,7 +99,7 @@ export default function Page() {
             </motion.h1>
 
             <p className="mt-4 text-lg text-neutral-700 max-w-2xl">
-              Une formation complète en 5 modules (29 h), conçue pour les pros de l'hôtellerie/restauration en reconversion. Sans vidéos, 100% actionnable.
+              Une formation complète en 5 modules (29 h), conçue pour les pros de l’hôtellerie/restauration en reconversion. Sans vidéos, 100% actionnable.
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -123,8 +123,8 @@ export default function Page() {
             <Card className="p-6" bgColor="#ffffff" borderColor={colors.pastel}>
               <p className="text-sm font-semibold" style={{ color: colors.vivid }}>Pourquoi ce pack ?</p>
               <ul className="space-y-3 text-sm text-neutral-700">
-                <li className="flex items-start gap-3"><Check className="mt-0.5 size-4" style={{ color: colors.vivid }} /> Un plan d'action concret pour passer de salarié à concierge indépendant</li>
-                <li className="flex items-start gap-3"><Check className="mt-0.5 size-4" style={{ color: colors.vivid }} /> Des exercices et matrices prêts à l'emploi, adaptés au marché français</li>
+                <li className="flex items-start gap-3"><Check className="mt-0.5 size-4" style={{ color: colors.vivid }} /> Un plan d’action concret pour passer de salarié à concierge indépendant</li>
+                <li className="flex items-start gap-3"><Check className="mt-0.5 size-4" style={{ color: colors.vivid }} /> Des exercices et matrices prêts à l’emploi, adaptés au marché français</li>
                 <li className="flex items-start gap-3"><Check className="mt-0.5 size-4" style={{ color: colors.vivid }} /> Les fiches pratiques <strong>réservées au pack</strong> pour gagner des jours</li>
               </ul>
             </Card>
@@ -153,7 +153,7 @@ export default function Page() {
       <Container className="py-6">
         <div className="mb-6">
           <h2 className="text-2xl font-bold">Ce que vous allez maîtriser</h2>
-          <p className="text-neutral-600">5 modules complémentaires pour passer de la théorie à l'action.</p>
+          <p className="text-neutral-600">5 modules complémentaires pour passer de la théorie à l’action.</p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {modules.map((m, i) => (
@@ -182,7 +182,7 @@ export default function Page() {
           {/* Unité */}
           <Card className="p-6 flex flex-col" bgColor="#ffffff" borderColor={colors.pastel}>
             <div className="flex-1">
-              <Badge>Module à l'unité</Badge>
+              <Badge>Module à l’unité</Badge>
               <h3 className="mt-3 text-xl font-bold">Idéal pour un besoin précis</h3>
               <p className="mt-1 text-sm text-neutral-600">1 module (PDF) — sans fiches pratiques</p>
               <div className="mt-5 flex items-baseline gap-2">
@@ -232,7 +232,7 @@ export default function Page() {
 
         <Card className="mt-6 p-5" bgColor={colors.pastel} borderColor={colors.pastel}>
           <p className="text-sm" style={{ color: colors.darkText }}>
-            <strong>Note :</strong> Cette formation est indépendante et neutre vis-à-vis des plateformes. Le contenu se concentre sur les bonnes pratiques opérationnelles d'une conciergerie professionnelle.
+            <strong>Note :</strong> Cette formation est indépendante et neutre vis-à-vis des plateformes. Le contenu se concentre sur les bonnes pratiques opérationnelles d’une conciergerie professionnelle.
           </p>
         </Card>
       </Container>
@@ -241,7 +241,7 @@ export default function Page() {
       <Container className="py-10">
         <div className="mb-6">
           <h2 className="text-2xl font-bold">Ils se sont lancés</h2>
-          <p className="text-neutral-600">Quelques retours d'apprenants (placeholders, à remplacer par vos témoignages réels).</p>
+          <p className="text-neutral-600">Quelques retours d’apprenants (placeholders, à remplacer par vos témoignages réels).</p>
         </div>
         <div className="grid md:grid-cols-3 gap-5">
           {[1,2,3].map((i)=> (
@@ -249,7 +249,7 @@ export default function Page() {
               <div className="flex items-center gap-2" style={{ color: "#FFB300" }}>
                 {Array.from({length:5}).map((_,j)=> <Star key={j} className="size-4 fill-current"/>)}
               </div>
-              <p className="mt-3 text-sm text-neutral-700">“Une approche ultra concrète. Les fiches m'ont fait gagner des jours de préparation.”</p>
+              <p className="mt-3 text-sm text-neutral-700">“Une approche ultra concrète. Les fiches m’ont fait gagner des jours de préparation.”</p>
               <p className="mt-3 text-xs text-neutral-500">Camille — Ex-réceptionniste</p>
             </Card>
           ))}
@@ -264,7 +264,7 @@ export default function Page() {
         <div className="grid md:grid-cols-2 gap-5">
           <Card className="p-5" bgColor="#ffffff" borderColor={colors.pastel}>
             <h3 className="font-semibold">Y a-t-il des vidéos ?</h3>
-            <p className="mt-2 text-sm text-neutral-700">Non. Le format est focalisé sur l'efficacité : PDF structurés, matrices, exercices et fiches pratiques (réservées au pack).</p>
+            <p className="mt-2 text-sm text-neutral-700">Non. Le format est focalisé sur l’efficacité : PDF structurés, matrices, exercices et fiches pratiques (réservées au pack).</p>
           </Card>
           <Card className="p-5" bgColor="#ffffff" borderColor={colors.pastel}>
             <h3 className="font-semibold">Combien de temps dois-je prévoir ?</h3>
@@ -276,7 +276,7 @@ export default function Page() {
           </Card>
           <Card className="p-5" bgColor="#ffffff" borderColor={colors.pastel}>
             <h3 className="font-semibold">Et si la formation ne me convient pas ?</h3>
-            <p className="mt-2 text-sm text-neutral-700">Vous disposez d'une garantie satisfait ou remboursé pendant 7 jours.</p>
+            <p className="mt-2 text-sm text-neutral-700">Vous disposez d’une garantie satisfait ou remboursé pendant 7 jours.</p>
           </Card>
         </div>
       </Container>
@@ -285,7 +285,7 @@ export default function Page() {
       <Container className="py-12">
         <Card className="p-8 text-center" bgColor={colors.darkText} borderColor={colors.darkText}>
           <h2 className="text-2xl font-extrabold text-white">Dans une semaine, vous pourriez préparer vos premières prestations</h2>
-          <p className="mt-2" style={{ color: colors.light }}>Passez à l'action avec un plan clair et des outils prêts à l'emploi.</p>
+          <p className="mt-2" style={{ color: colors.light }}>Passez à l’action avec un plan clair et des outils prêts à l’emploi.</p>
           <Button className="mt-5" onClick={() => router.push("/quiz")}>
             Commencer le questionnaire <ArrowRight className="ml-2 inline size-4" />
           </Button>
