@@ -1,13 +1,15 @@
+import { Container, Card, Badge, Button } from "@/components/ui";
+
 export const metadata = { title: "Reconversion — Vous êtes prêt(e) à foncer !" };
 
 export default function Page() {
   return (
-    <main className="mx-auto max-w-3xl p-6 space-y-6">
+    <Container className="mx-auto max-w-3xl p-6 space-y-6">
       <h1 className="text-2xl font-extrabold">Vous êtes prêt(e) à foncer !</h1>
       <p className="text-neutral-700">Faculté d’organisation et motivation solides.</p>
 
-      <section className="rounded-2xl border p-5 space-y-3 bg-white">
-        <h2 className="text-xl font-bold">Module 1 — Se lancer en toute légalité</h2>
+    <Card className="p-5 bg-white border">
+          <h2 className="text-xl font-bold">Module 1 — Se lancer en toute légalité</h2>
         <p className="text-sm text-neutral-700">
           <strong>Résumé :</strong> Posez des bases solides ! Statut, obligations, fiscalité, carte G, assurances…
           Tout ce qu’il faut savoir pour démarrer sereinement et en toute conformité.
@@ -15,9 +17,9 @@ export default function Page() {
         <p className="text-sm text-neutral-700">
           Idéal pour partir sur des fondations solides sans stress administratif.
         </p>
-      </section>
+      </Card>
 
-      <section className="rounded-2xl border p-5 space-y-3 bg-white">
+ <Card className="p-5 bg-white border">
         <h2 className="text-xl font-bold">Module 2 — Construire une offre rentable et pro</h2>
         <p className="text-sm text-neutral-700">
           <strong>Résumé :</strong> Clarifiez vos prestations, créez des packs attractifs et fixez des tarifs justes.
@@ -26,7 +28,7 @@ export default function Page() {
         <p className="text-sm text-neutral-700">
           Pour apprendre à vendre vos services de façon simple et efficace.
         </p>
-      </section>
-    </main>
+      </Card>
+    </Container>
   );
 }
