@@ -1,9 +1,28 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-pastel: #D7CEC0;  /* orange grisé pastel */
+  --color-vivid:  #F45C2C;  /* orange vif */
+  --color-light:  #F5F1ED;  /* orange clair */
+  --color-dark:   #2E2E2E;  /* texte foncé */
 }
+
+/* Quelques bases utiles (optionnel mais recommandé) */
+html, body {
+  height: 100%;
+}
+
+body {
+  color: var(--color-dark);
+  background-image: linear-gradient(to bottom, var(--color-light), #ffffff);
+}
+
+/* Accessibilité focus par défaut (utile pour tous les boutons/liens) */
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-vivid), 0 0 0 4px #fff;
+}
+
 
 @theme inline {
   --color-background: var(--background);
