@@ -211,17 +211,35 @@ export default function FlowPage() {
 
   const q = questions[step];
 
-  function select(points) {
-    setAnswers(prev => ({ ...prev, [q.id]: points }));
-    if (step < questions.length - 1) {
-      setStep(step + 1);
-    } else {
-      // Fin : calcule un score simple et redirige vers résultat
-      const total = Object.values({ ...answers, [q.id]: points }).reduce((a, b) => a + b, 0);
-      const resultId = total <= 3 ? "pack_basic" : "pack_pro";
-      router.push(`/resultat?resultId=${resultId}&flow=${flow}`);
-    }
+function select(points) {
+  // on enregistre le choix
+  setAnswers(prev => ({ ...prev, [q.id]: points }));
+
+  // s'il reste des questions, on passe à la suivante
+  if (step < questions.length - 1) {
+    setStep(step + 1);
+    return;
   }
+
+  // fin du questionnaire → calcul du total
+  const total = Object.values({ ...answers, [q.id]: points })
+    .reduce((a, b) => a + b, 0);
+
+  // mapping spécifique pour le flux "reconversion"
+  if (flow === "reconversion") {
+    // 0–9 → explorer | 10–15 → bonne-voie | 16–20 → foncer
+    let path = "/resultat/reconversion/explorer";
+    if (total >= 10 && total <= 15) path = "/resultat/reconversion/bonne-voie";
+    if (total >= 16) path = "/resultat/reconversion/foncer";
+    router.push(path);
+    return;
+  }
+
+  // autres flux (ex: lancement) → logique existante
+  const resultId = total <= 3 ? "pack_basic" : "pack_pro";
+  router.push(`/resultat?resultId=${resultId}&flow=${flow}`);
+}
+
 
   return (
     <main className="mx-auto max-w-2xl p-6 space-y-6">
