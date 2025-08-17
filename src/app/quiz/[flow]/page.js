@@ -6,7 +6,7 @@ import { Container, Card, Button, Badge, colors } from "@/components/ui";
 import { Star, CheckCircle2, Info, TrendingUp, Clock, Shield, Sparkles } from "lucide-react";
 
 /* ------------------------------------------------------------------
-   1) BANQUE DE QUESTIONS (tu peux garder la tienne, sinon celle-ci)
+   1) BANQUE DE QUESTIONS
 -------------------------------------------------------------------*/
 const BANK = {
   reconversion: [
@@ -36,7 +36,7 @@ const BANK = {
 };
 
 /* ------------------------------------------------------------------
-   2) TEASERS PÉDAGOGIQUES (why + hint) — reconversion + lancement
+   2) TEASERS PÉDAGOGIQUES (why + hint)
 -------------------------------------------------------------------*/
 const TEASER_INFO_RECONVERSION = {
   "Q1-flux1":  { why: "Capacité à tenir l’opérationnel : prioriser, prévoir des buffers, gérer l’imprévu sans paniquer.", hint: "Crée 3 checklists (arrivée, départ, incident). Ajoute un ‘tampon temps’ de 15–20 min par mission." },
@@ -67,7 +67,7 @@ const TEASER_INFO_LANCEMENT = {
 const TEASER_INFO = { ...TEASER_INFO_RECONVERSION, ...TEASER_INFO_LANCEMENT };
 
 /* ------------------------------------------------------------------
-   3) SOCIAL PROOF (plus visible)
+   3) SOCIAL PROOF
 -------------------------------------------------------------------*/
 const SOCIAL_PROOF = [
   { text: "« Ce quiz m’a aidée à comprendre où creuser en priorité. » — Claire (Bordeaux)" },
@@ -141,7 +141,7 @@ function Teaser({ qid }) {
 }
 
 /* ------------------------------------------------------------------
-   5) Page principale
+   5) Page principale — Option B (“Continuer” explicite)
 -------------------------------------------------------------------*/
 export default function Page() {
   const router = useRouter();
@@ -152,10 +152,13 @@ export default function Page() {
   const [answers, setAnswers] = useState({});
   const [lastFeedback, setLastFeedback] = useState(null);          // { tone, text }
   const [selectedOptionIndex, setSelectedOptionIndex] = useState(null);
+  const [awaitingConfirm, setAwaitingConfirm] = useState(false);   // ← bloque les boutons et attend “Continuer”
 
+  // Purge feedback / surbrillance / attente à chaque nouvelle question
   useEffect(() => {
-    setLastFeedback(null);        // purge feedback quand on change de question
-    setSelectedOptionIndex(null); // purge surbrillance bouton
+    setLastFeedback(null);
+    setSelectedOptionIndex(null);
+    setAwaitingConfirm(false);
   }, [step]);
 
   if (!questions.length) {
@@ -169,6 +172,7 @@ export default function Page() {
   }
 
   const q = questions[step];
+  const isLast = step >= questions.length - 1;
 
   function feedbackFor(points) {
     if (points >= 2) return { tone: "good", text: "Excellent réflexe — c’est un vrai point fort !" };
@@ -177,20 +181,19 @@ export default function Page() {
   }
 
   function select(points, index) {
+    if (awaitingConfirm) return; // sécurité
     setSelectedOptionIndex(index);
     setAnswers(prev => ({ ...prev, [q.id]: points }));
+    setLastFeedback(feedbackFor(points));
+    setAwaitingConfirm(true); // on attend le clic “Continuer” (ou “Voir mes résultats” si dernière)
+  }
 
-    const fb = feedbackFor(points);
-    setLastFeedback(fb);
+  function goNext() {
+    setStep(s => s + 1);
+  }
 
-    const isLast = step >= questions.length - 1;
-    if (!isLast) {
-      setTimeout(() => setStep(s => s + 1), 300);
-      return;
-    }
-
-    // score total + routing finaux
-    const total = Object.values({ ...answers, [q.id]: points }).reduce((a, b) => a + b, 0);
+  function finish() {
+    const total = Object.values(answers).reduce((a, b) => a + b, 0);
     const max = questions.reduce((acc, qq) => acc + Math.max(...qq.options.map(o => o.points)), 0);
 
     if (flow === "reconversion") {
@@ -247,8 +250,11 @@ export default function Page() {
               <Button
                 key={i}
                 onClick={() => select(opt.points, i)}
+                disabled={awaitingConfirm} // on bloque après un choix
                 variant={isActive ? "primary" : "secondary"}
-                className={`w-full justify-start ${isActive ? "ring-2 ring-offset-2" : ""}`}
+                className={`w-full justify-start ${isActive ? "ring-2 ring-offset-2" : ""} ${
+                  awaitingConfirm ? "opacity-70 cursor-not-allowed" : ""
+                }`}
               >
                 {opt.label}
               </Button>
@@ -256,6 +262,7 @@ export default function Page() {
           })}
         </div>
 
+        {/* Feedback + Teaser après choix */}
         {lastFeedback && (
           <div className="mt-4 text-sm" style={{ color: fbColor }}>
             <div className="flex items-center gap-2">
@@ -264,8 +271,18 @@ export default function Page() {
             </div>
           </div>
         )}
-
         {lastFeedback && <Teaser qid={q.id} />}
+
+        {/* CTA “Continuer” ou “Voir mes résultats” */}
+        {awaitingConfirm && (
+          <div className="mt-4 flex justify-end">
+            {isLast ? (
+              <Button onClick={finish}>Voir mes résultats</Button>
+            ) : (
+              <Button onClick={goNext}>Continuer</Button>
+            )}
+          </div>
+        )}
 
         <MicroSocialProof step={step} />
       </Card>

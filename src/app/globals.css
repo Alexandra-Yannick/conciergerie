@@ -7,7 +7,9 @@
   --color-dark:#2E2E2E;
 }
 
-html,body{height:100%}
+html,body{
+  @apply font-sans;
+}
 body{
   color:var(--color-dark);
   background-image:linear-gradient(to bottom,var(--color-light),#fff);

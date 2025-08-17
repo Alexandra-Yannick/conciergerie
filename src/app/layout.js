@@ -1,42 +1,23 @@
+// src/app/layout.js
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Montserrat } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-montserrat", // utilisé par Tailwind: font-sans -> var(--font-montserrat)
+});
 
 export const metadata = {
   title: "Cap Conciergerie",
   description: "Questionnaire et modules — Édition lancement",
-  // robots: { index: false, follow: false }, // décommente si tu veux bloquer Google
+  // robots: { index: false, follow: false },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fr">
-      {/* Applique la police au body */}
-      <body className={`min-h-screen antialiased ${inter.className}`}>
-        {/* Header global (facultatif) */}
-        {/*
-        <header className="py-4">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-            <a href="/" className="font-semibold">Cap Conciergerie</a>
-            <nav className="text-sm">
-              <a className="mr-4 hover:underline" href="/quiz">Quiz</a>
-              <a className="hover:underline" href="/offre">Offre</a>
-            </nav>
-          </div>
-        </header>
-        */}
-
-        {children}
-
-        {/* Footer global (facultatif) */}
-        {/*
-        <footer className="py-10">
-          <p className="text-center text-xs text-neutral-500">
-            © {new Date().getFullYear()} — Cap Conciergerie. Tous droits réservés.
-          </p>
-        </footer>
-        */}
+    <html lang="fr" className={montserrat.variable}>
+<body className={`${montserrat.className} min-h-screen antialiased`}>        {children}
       </body>
     </html>
   );
