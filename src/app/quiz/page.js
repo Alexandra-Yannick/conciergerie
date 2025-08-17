@@ -1,39 +1,24 @@
-import { Container, Card, Badge, Button } from "@/components/ui";
+// src/app/quiz/page.js
+"use client";
+import { Container, Card, Button } from "@/components/ui";
+import { useRouter } from "next/navigation";
 
-export const metadata = { title: "Cap Conciergerie — Lancez-vous" };
-
-export default function HomePage() {
+export default function Page() {
+  const router = useRouter();
   return (
-    <Container className="py-12 space-y-8">
-      {/* Hero */}
-      <div>
-        <Badge className="mb-4" bg="var(--color-pastel)">Pack Conciergerie • Édition lancement</Badge>
-        <h1 className="text-4xl/tight font-extrabold">Faites le test et découvrez par où commencer</h1>
-        <p className="mt-3 text-neutral-700 max-w-2xl">
-          Un questionnaire rapide pour situer votre niveau, puis des recommandations concrètes
-          (modules & étapes) pour avancer tout de suite.
-        </p>
-        <div className="mt-6 flex gap-3">
-          <Button onClick={() => location.assign("/quiz")}>Commencer le questionnaire</Button>
-          <Button variant="secondary" onClick={() => location.assign("/quiz/reconversion")}>Je débute</Button>
+    <Container className="pt-8 pb-12">
+      <h1 className="text-2xl font-bold mb-4">Êtes-vous fait pour la conciergerie locative ?</h1>
+      <Card className="p-6 bg-white border">
+        <h2 className="text-xl font-semibold mb-4">🧭 Où en êtes-vous aujourd’hui ?</h2>
+        <div className="grid gap-3">
+          <Button className="justify-start" onClick={() => router.push("/quiz/reconversion")}>
+            🟢 Je découvre / reconversion
+          </Button>
+          <Button className="justify-start" variant="secondary" onClick={() => router.push("/quiz/lancement")}>
+            🔵 J’ai déjà commencé / lancement
+          </Button>
         </div>
-      </div>
-
-      {/* Arguments */}
-      <div className="grid md:grid-cols-3 gap-5">
-        <Card className="p-5 bg-white border">
-          <h3 className="font-semibold">Pensé pour la reconversion</h3>
-          <p className="mt-2 text-sm text-neutral-700">Simple, guidé, orienté action. Zéro jargon inutile.</p>
-        </Card>
-        <Card className="p-5 bg-white border">
-          <h3 className="font-semibold">Recommandations personnalisées</h3>
-          <p className="mt-2 text-sm text-neutral-700">Selon votre score, on vous propose les étapes prioritaires.</p>
-        </Card>
-        <Card className="p-5 bg-white border">
-          <h3 className="font-semibold">Modules prêts à l’emploi</h3>
-          <p className="mt-2 text-sm text-neutral-700">Des supports concrets à activer quand vous êtes prêt(e).</p>
-        </Card>
-      </div>
+      </Card>
     </Container>
   );
 }

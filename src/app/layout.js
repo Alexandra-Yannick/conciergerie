@@ -1,4 +1,7 @@
 import "./globals.css";
+import { Inter } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Cap Conciergerie",
@@ -9,9 +12,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fr">
-      <body className="min-h-screen antialiased">
+      {/* Applique la police au body */}
+      <body className={`min-h-screen antialiased ${inter.className}`}>
         {/* Header global (facultatif) */}
-        {/* <header className="py-4">
+        {/*
+        <header className="py-4">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 flex items-center justify-between">
             <a href="/" className="font-semibold">Cap Conciergerie</a>
             <nav className="text-sm">
@@ -19,16 +24,19 @@ export default function RootLayout({ children }) {
               <a className="hover:underline" href="/offre">Offre</a>
             </nav>
           </div>
-        </header> */}
+        </header>
+        */}
 
         {children}
 
         {/* Footer global (facultatif) */}
-        {/* <footer className="py-10">
+        {/*
+        <footer className="py-10">
           <p className="text-center text-xs text-neutral-500">
             © {new Date().getFullYear()} — Cap Conciergerie. Tous droits réservés.
           </p>
-        </footer> */}
+        </footer>
+        */}
       </body>
     </html>
   );

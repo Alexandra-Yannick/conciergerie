@@ -9,7 +9,6 @@ export default function Page({ searchParams }) {
 
   return (
     <Container className="py-8 space-y-6">
-      {/* En-tête score */}
       <Card className="p-5 bg-white border">
         <div className="flex items-baseline justify-between">
           <h1 className="text-2xl font-extrabold">Votre résultat</h1>
@@ -24,25 +23,21 @@ export default function Page({ searchParams }) {
         </div>
       </Card>
 
-      {/* Recommandations */}
-      <Card className="p-5 bg-white border">
-        <h2 className="text-xl font-bold">Module 1 — Se lancer en toute légalité</h2>
-        <p className="text-sm text-neutral-700">
-          <strong>Résumé :</strong> Posez des bases solides ! Statut, obligations, fiscalité, carte G, assurances…
-          Tout ce qu’il faut savoir pour démarrer sereinement et en toute conformité.
-        </p>
-        <p className="text-sm text-neutral-700">
-          Idéal pour partir sur des fondations solides sans stress administratif.
-        </p>
+      <Card className="p-5 bg-white border space-y-3">
+        <h2 className="text-xl font-bold">Vous êtes sur la bonne voie</h2>
+        <p className="text-neutral-700">Vous avez plusieurs compétences-clé.</p>
       </Card>
 
-      <Card className="p-5 bg-white border">
-        <h2 className="text-xl font-bold">Module 3 — Trouver et fidéliser ses clients</h2>
-        <p className="text-sm text-neutral-700">
-          <strong>Résumé :</strong> Apprenez à attirer vos premiers propriétaires et à les garder sur le long terme.
-          Stratégies locales, pitch, image de marque et astuces pour créer une clientèle fidèle.
-        </p>
-        <p className="text-sm text-neutral-700">Le module clé pour remplir et sécuriser votre agenda.</p>
+      <Card className="p-5 bg-white border space-y-3">
+        <h3 className="text-lg font-semibold">Module 1 — Se lancer en toute légalité</h3>
+        <p className="text-sm text-neutral-700"><strong>Résumé :</strong> Statut, obligations, fiscalité, carte G, assurances…</p>
+        <p className="text-sm text-neutral-700">Idéal pour des fondations solides.</p>
+      </Card>
+
+      <Card className="p-5 bg-white border space-y-3">
+        <h3 className="text-lg font-semibold">Module 3 — Trouver et fidéliser ses clients</h3>
+        <p className="text-sm text-neutral-700"><strong>Résumé :</strong> Stratégies locales, pitch, image de marque.</p>
+        <p className="text-sm text-neutral-700">Le module clé pour sécuriser l’agenda.</p>
       </Card>
     </Container>
   );

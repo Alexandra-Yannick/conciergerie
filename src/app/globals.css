@@ -1,24 +1,14 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root {
-  --color-pastel: #D7CEC0;  /* orange grisé pastel */
-  --color-vivid:  #F45C2C;  /* orange vif */
-  --color-light:  #F5F1ED;  /* orange clair */
-  --color-dark:   #2E2E2E;  /* texte foncé */
+:root{
+  --color-pastel:#D7CEC0;
+  --color-vivid:#F45C2C;
+  --color-light:#F5F1ED;
+  --color-dark:#2E2E2E;
 }
 
-html, body { height: 100%; }
-
-body {
-  color: var(--color-dark);
-  background-image: linear-gradient(to bottom, var(--color-light), #ffffff);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-/* focus accessible par défaut */
-:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 2px var(--color-vivid), 0 0 0 4px #fff;
+html,body{height:100%}
+body{
+  color:var(--color-dark);
+  background-image:linear-gradient(to bottom,var(--color-light),#fff);
 }
