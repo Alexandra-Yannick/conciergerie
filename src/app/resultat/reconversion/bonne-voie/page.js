@@ -25,7 +25,8 @@ export default function Page({ searchParams }) {
 
       <Card className="p-5 bg-white border space-y-3">
         <h2 className="text-xl font-bold">Vous êtes sur la bonne voie</h2>
-        <p className="text-neutral-700">Vous avez plusieurs compétences-clé.</p>
+        <p className="text-neutral-700">Tu es au tout début de ta réflexion, et c’est parfait !
+Tu gagnes du temps (et de l’énergie) en identifiant les compétences à acquérir avant de te lancer.</p>
       </Card>
 
       <Card className="p-5 bg-white border space-y-3">

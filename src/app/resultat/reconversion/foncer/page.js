@@ -25,19 +25,24 @@ export default function Page({ searchParams }) {
 
       <Card className="p-5 bg-white border space-y-3">
         <h2 className="text-xl font-bold">Vous êtes prêt(e) à foncer !</h2>
-        <p className="text-neutral-700">Faculté d’organisation et motivation solides.</p>
+        <p className="text-neutral-700">Tu as déjà un bon sens de l'organisation, une vraie motivation, et un profil très compatible avec la conciergerie locative.
+Tu es prêt(e) à poser des bases solides et à bâtir un projet sérieux.</p>
       </Card>
 
       <Card className="p-5 bg-white border space-y-3">
-        <h3 className="text-lg font-semibold">Module 1 — Se lancer en toute légalité</h3>
+        <h3 className="text-lg font-semibold">Module 1 : pour bien comprendre le métier, ses réalités et ses opportunités</h3>
         <p className="text-sm text-neutral-700"><strong>Résumé :</strong> Statut, obligations, fiscalité, carte G, assurances…</p>
         <p className="text-sm text-neutral-700">Démarrer sereinement et en conformité.</p>
       </Card>
 
       <Card className="p-5 bg-white border space-y-3">
-        <h3 className="text-lg font-semibold">Module 2 — Construire une offre rentable et pro</h3>
+        <h3 className="text-lg font-semibold">Module 2 : pour poser les bases légales, choisir ton statut et éviter les pièges</h3>
         <p className="text-sm text-neutral-700"><strong>Résumé :</strong> Clarifiez vos prestations, packs et tarifs justes.</p>
         <p className="text-sm text-neutral-700">Pour vendre vos services simplement et efficacement.</p>
+      </Card>
+
+      <Card className="p-5 bg-white border space-y-3">
+        <h3 className="text-lg font-semibold">Astuce : Gagne du temps et de la clarté en choisissant directement le pack complet, tu pourras progresser à ton rythme avec les bons outils dès le départ.</h3>
       </Card>
     </Container>
   );

@@ -27,20 +27,26 @@ export default function Page({ searchParams }) {
       {/* Reco de contenu */}
       <Card className="p-5 bg-white border space-y-3">
         <h2 className="text-xl font-bold">Il est temps de mieux explorer</h2>
-        <p className="text-neutral-700">Ce métier demande de creuser certaines bases.</p>
+        <p className="text-neutral-700">Tu montres déjà plusieurs qualités utiles pour ce métier, mais certaines zones d’ombre subsistent.
+Tu es curieux(se), motivé(e), mais tu as besoin de structurer ton projet pour ne pas te disperser.</p>
       </Card>
 
       <Card className="p-5 bg-white border space-y-3">
-        <h3 className="text-lg font-semibold">Module 1 — Se lancer en toute légalité</h3>
+        <h3 className="text-lg font-semibold">Module 1 : pour t’assurer que le métier correspond vraiment à ton profil</h3>
         <p className="text-sm text-neutral-700"><strong>Résumé :</strong> Posez des bases solides ! Statut, obligations, fiscalité, carte G, assurances…</p>
         <p className="text-sm text-neutral-700">Idéal pour partir sur des fondations solides sans stress administratif.</p>
       </Card>
 
       <Card className="p-5 bg-white border space-y-3">
-        <h3 className="text-lg font-semibold">Module 3 — Trouver et fidéliser ses clients</h3>
+        <h3 className="text-lg font-semibold">Module 3 : pour apprendre à trouver tes premiers clients et structurer ta communication</h3>
         <p className="text-sm text-neutral-700"><strong>Résumé :</strong> Attirer vos premiers propriétaires et les garder.</p>
         <p className="text-sm text-neutral-700">Le module clé pour remplir et sécuriser votre agenda.</p>
       </Card>
+
+      <Card className="p-5 bg-white border space-y-3">
+        <h3 className="text-lg font-semibold">Option futée : Le pack complet peut t’éviter de devoir revenir plus tard sur des aspects oubliés ou mal maîtrisés.</h3>
+      </Card>
+
     </Container>
   );
 }

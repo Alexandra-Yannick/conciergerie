@@ -196,15 +196,23 @@ export default function Page() {
     const total = Object.values(answers).reduce((a, b) => a + b, 0);
     const max = questions.reduce((acc, qq) => acc + Math.max(...qq.options.map(o => o.points)), 0);
 
-    if (flow === "reconversion") {
-      let path = "/resultat/reconversion/explorer";
-      if (total >= 10 && total <= 15) path = "/resultat/reconversion/bonne-voie";
-      if (total >= 16) path = "/resultat/reconversion/foncer";
-      router.push(`${path}?score=${total}&max=${max}`);
-    } else {
-      const resultId = total <= 3 ? "pack_basic" : "pack_pro";
-      router.push(`/resultat?resultId=${resultId}&flow=${flow}&score=${total}&max=${max}`);
-    }
+if (flow === "reconversion") {
+  let path = "/resultat/reconversion/explorer";
+  if (total >= 10 && total <= 15) path = "/resultat/reconversion/bonne-voie";
+  if (total >= 16) path = "/resultat/reconversion/foncer";
+  router.push(`${path}?score=${total}&max=${max}`);
+  return;
+}
+
+if (flow === "lancement") {
+  let path = "/resultat/lancement/bases";          // 0–9
+  if (total >= 10 && total <= 15) path = "/resultat/lancement/structurer";
+  if (total >= 16) path = "/resultat/lancement/scaler";
+  router.push(`${path}?score=${total}&max=${max}`);
+  return;
+}
+// fallback éventuel
+router.push(`/resultat?resultId=pack_pro&flow=${flow}&score=${total}&max=${max}`);
   }
 
   const fbColor =
