@@ -197,8 +197,8 @@ export default function Page() {
     const max = questions.reduce((acc, qq) => acc + Math.max(...qq.options.map(o => o.points)), 0);
 
 if (flow === "reconversion") {
-  let path = "/resultat/reconversion/explorer";
-  if (total >= 10 && total <= 15) path = "/resultat/reconversion/bonne-voie";
+  let path = "/resultat/reconversion/bonne-voie";          // 0–9
+  if (total >= 10 && total <= 15) path = "/resultat/reconversion/explorer";
   if (total >= 16) path = "/resultat/reconversion/foncer";
   router.push(`${path}?score=${total}&max=${max}`);
   return;
@@ -212,8 +212,7 @@ if (flow === "lancement") {
   return;
 }
 // fallback éventuel
-router.push(`/resultat?resultId=pack_pro&flow=${flow}&score=${total}&max=${max}`);
-  }
+router.push(`/quiz`);  }
 
   const fbColor =
     lastFeedback?.tone === "good" ? "#16a34a" :
