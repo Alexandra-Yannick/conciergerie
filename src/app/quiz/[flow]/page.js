@@ -223,7 +223,6 @@ export default function Page() {
               <h1 className="text-xl font-bold capitalize">Questionnaire — {flow}</h1>
               <p className="text-sm text-neutral-600 flex items-center gap-3 mt-1">
                 <Badge bg="var(--color-light)"><Clock className="size-3 mr-1" /> ~4 min</Badge>
-                <Badge bg="var(--color-light)"><Shield className="size-3 mr-1" /> Satisfait ou remboursé 7 jours</Badge>
                 <Badge bg="var(--color-light)"><Sparkles className="size-3 mr-1" /> Fiches exclusives dans le pack</Badge>
               </p>
             </div>
