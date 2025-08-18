@@ -149,17 +149,10 @@ export default function Page() {
 
   const questions = useMemo(() => BANK[flow] ?? [], [flow]);
   const [step, setStep] = useState(0);
-  const [answers, setAnswers] = useState({});
-  const [lastFeedback, setLastFeedback] = useState(null);          // { tone, text }
+  const [answers, setAnswers] = useState({});                // { [qid]: points }
+  const [lastFeedback, setLastFeedback] = useState(null);    // { tone, text }
   const [selectedOptionIndex, setSelectedOptionIndex] = useState(null);
-  const [awaitingConfirm, setAwaitingConfirm] = useState(false);   // ← bloque les boutons et attend “Continuer”
-
-  // Purge feedback / surbrillance / attente à chaque nouvelle question
-  useEffect(() => {
-    setLastFeedback(null);
-    setSelectedOptionIndex(null);
-    setAwaitingConfirm(false);
-  }, [step]);
+  const [awaitingConfirm, setAwaitingConfirm] = useState(false);
 
   if (!questions.length) {
     return (
@@ -180,39 +173,63 @@ export default function Page() {
     return { tone: "bad",  text: "Pas grave, beaucoup font cette erreur au début. On corrige ça rapidement." };
   }
 
+  // À chaque question, recharger la réponse si elle existe
+  useEffect(() => {
+    const prevPoints = answers[q.id];
+    if (prevPoints != null) {
+      const idx = q.options.findIndex(o => o.points === prevPoints);
+      setSelectedOptionIndex(idx >= 0 ? idx : null);
+      setLastFeedback(feedbackFor(prevPoints));
+      setAwaitingConfirm(true);
+    } else {
+      setSelectedOptionIndex(null);
+      setLastFeedback(null);
+      setAwaitingConfirm(false);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [step, q.id]);
+
+  // Sélection d’une option = stocke + feedback + demande confirmation
   function select(points, index) {
-    if (awaitingConfirm) return; // sécurité
     setSelectedOptionIndex(index);
     setAnswers(prev => ({ ...prev, [q.id]: points }));
     setLastFeedback(feedbackFor(points));
-    setAwaitingConfirm(true); // on attend le clic “Continuer” (ou “Voir mes résultats” si dernière)
+    setAwaitingConfirm(true);
+  }
+
+  function goPrev() {
+    if (step > 0) setStep(s => s - 1);
   }
 
   function goNext() {
-    setStep(s => s + 1);
+    // nécessite une sélection
+    if (selectedOptionIndex === null) return;
+    if (!isLast) setStep(s => s + 1);
+    else finish();
   }
 
   function finish() {
     const total = Object.values(answers).reduce((a, b) => a + b, 0);
     const max = questions.reduce((acc, qq) => acc + Math.max(...qq.options.map(o => o.points)), 0);
 
-if (flow === "reconversion") {
-  let path = "/resultat/reconversion/bonne-voie";          // 0–9
-  if (total >= 10 && total <= 15) path = "/resultat/reconversion/explorer";
-  if (total >= 16) path = "/resultat/reconversion/foncer";
-  router.push(`${path}?score=${total}&max=${max}`);
-  return;
-}
+    if (flow === "reconversion") {
+      let path = "/resultat/reconversion/explorer"; // 0–9
+      if (total >= 10 && total <= 15) path = "/resultat/reconversion/bonne-voie";
+      if (total >= 16) path = "/resultat/reconversion/foncer";
+      router.push(`${path}?score=${total}&max=${max}`);
+      return;
+    }
 
-if (flow === "lancement") {
-  let path = "/resultat/lancement/bases";          // 0–9
-  if (total >= 10 && total <= 15) path = "/resultat/lancement/structurer";
-  if (total >= 16) path = "/resultat/lancement/scaler";
-  router.push(`${path}?score=${total}&max=${max}`);
-  return;
-}
-// fallback éventuel
-router.push(`/quiz`);  }
+    if (flow === "lancement") {
+      let path = "/resultat/lancement/bases"; // 0–9
+      if (total >= 10 && total <= 15) path = "/resultat/lancement/structurer";
+      if (total >= 16) path = "/resultat/lancement/scaler";
+      router.push(`${path}?score=${total}&max=${max}`);
+      return;
+    }
+
+    router.push(`/quiz`);
+  }
 
   const fbColor =
     lastFeedback?.tone === "good" ? "#16a34a" :
@@ -227,7 +244,6 @@ router.push(`/quiz`);  }
           <h1 className="text-xl font-bold capitalize">Questionnaire — {flow}</h1>
           <p className="text-sm text-neutral-600 flex items-center gap-3 mt-1">
             <Badge bg="var(--color-light)"><Clock className="size-3 mr-1" /> ~4 min</Badge>
-            <Badge bg="var(--color-light)"><Shield className="size-3 mr-1" /> Satisfait ou remboursé 7 jours</Badge>
             <Badge bg="var(--color-light)"><Sparkles className="size-3 mr-1" /> Fiches exclusives dans le pack</Badge>
           </p>
         </div>
@@ -257,11 +273,9 @@ router.push(`/quiz`);  }
               <Button
                 key={i}
                 onClick={() => select(opt.points, i)}
-                disabled={awaitingConfirm} // on bloque après un choix
+                disabled={false}
                 variant={isActive ? "primary" : "secondary"}
-                className={`w-full justify-start ${isActive ? "ring-2 ring-offset-2" : ""} ${
-                  awaitingConfirm ? "opacity-70 cursor-not-allowed" : ""
-                }`}
+                className={`w-full justify-start ${isActive ? "ring-2 ring-offset-2" : ""}`}
               >
                 {opt.label}
               </Button>
@@ -278,18 +292,24 @@ router.push(`/quiz`);  }
             </div>
           </div>
         )}
-        {lastFeedback && <Teaser qid={q.id} />}
+        {answers[q.id] != null && <Teaser qid={q.id} />}
 
-        {/* CTA “Continuer” ou “Voir mes résultats” */}
-        {awaitingConfirm && (
-          <div className="mt-4 flex justify-end">
-            {isLast ? (
-              <Button onClick={finish}>Voir mes résultats</Button>
-            ) : (
-              <Button onClick={goNext}>Continuer</Button>
-            )}
-          </div>
-        )}
+        {/* Navigation */}
+        <div className="mt-6 flex items-center justify-between">
+          <Button variant="secondary" onClick={goPrev} disabled={step === 0}>
+            ← Précédent
+          </Button>
+
+          {awaitingConfirm ? (
+            <Button onClick={goNext}>
+              {isLast ? "Voir mes résultats" : "Continuer"}
+            </Button>
+          ) : (
+            <Button onClick={goNext} disabled={selectedOptionIndex === null}>
+              {isLast ? "Voir mes résultats" : "Continuer"}
+            </Button>
+          )}
+        </div>
 
         <MicroSocialProof step={step} />
       </Card>

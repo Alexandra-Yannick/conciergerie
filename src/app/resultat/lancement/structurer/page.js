@@ -1,49 +1,80 @@
-import { Container, Card, Badge, Button } from "@/components/ui";
+// src/app/resultat/reconversion/foncer/page.js
+import { Container, Card, Button } from "@/components/ui";
 
-export const metadata = { title: "Lancement — Structurer l’offre & 1ers clients" };
+export const metadata = { title: "Lancement - Structurez l'offre et signez vos premiers clients" };
 
 export default function Page({ searchParams }) {
   const score = Number(searchParams?.score ?? 0);
-  const max   = Number(searchParams?.max ?? 20);
-  const ratio = Math.round((score / (max || 1)) * 100);
+  const max = Number(searchParams?.max ?? 20);
 
   return (
-    <Container className="mx-auto max-w-3xl p-6 space-y-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-extrabold">Structurer l’offre & vos premiers clients</h1>
-        <Badge bg="var(--color-light)" fg="var(--color-dark)">
-          Score&nbsp;: <strong className="ml-1">{score}</strong> / {max} ({ratio}%)
-        </Badge>
-      </div>
-
+    <Container className="py-8 space-y-6">
+      {/* En-tête résultat */}
       <Card className="p-5 bg-white border">
+        <div className="flex items-start justify-between">
+          <div>
+            <h1 className="text-2xl font-extrabold">Votre résultat</h1>
+            <div className="mt-2 text-xl font-bold">
+              {score} / {max}
+            </div>
+          </div>
+
+          {/* petit bouton en haut à droite */}
+          <Button
+            href="/offre"
+            className="px-3 py-2 text-xs"
+          >
+            Voir les modules
+          </Button>
+        </div>
+      </Card>
+
+      {/* Message principal */}
+      <Card className="p-5 bg-white border space-y-3">
+        <h2 className="text-xl font-bold">{"Bonne base, encore à structurer"}</h2>
         <p className="text-neutral-700">
-          Vous êtes sur la bonne voie. Il faut maintenant <strong>packager l’offre</strong>, clarifier vos <strong>prix</strong> et enclencher un
-          <strong> rythme d’acquisition</strong> simple mais régulier.
+          {"Tu avances bien, mais tu ressens peut-être un manque de méthode, ou certaines tâches deviennent floues ou chronophages. Le potentiel est là, mais il faut renforcer les fondations."}
         </p>
       </Card>
 
-      <Card className="p-5 bg-white border">
-        <h2 className="text-xl font-bold">Vos priorités maintenant</h2>
-        <ul className="mt-3 list-disc pl-5 text-neutral-700 space-y-1">
-          <li>Créer 2–3 <strong>packs</strong> (Essentiel/Plus/Premium) avec livrables & SLA clairs.</li>
-          <li>Établir des <strong>tarifs justifiés</strong> (coûts, marge cible, options).</li>
-          <li>Lancer 2 canaux d’<strong>acquisition</strong> (prospection locale + partenariats agents).</li>
-        </ul>
+      {/* Modules recommandés */}
+      <Card className="p-5 bg-white border space-y-3">
+        <h3 className="text-lg font-semibold">Module&nbsp;2</h3>
+        <p className="text-sm text-neutral-700">
+          <strong>Résumé&nbsp;:</strong>{" "}
+          {"Pour optimiser ton offre et ta rentabilité"}
+        </p>
       </Card>
 
-      <Card className="p-5 bg-white border">
-        <h3 className="font-semibold">Prochaines étapes concrètes (10 jours)</h3>
-        <ol className="mt-2 list-decimal pl-5 text-neutral-700 space-y-1">
-          <li>Écrire une page “offre” (PDF 8–10p) : packs, process, témoignages, conditions.</li>
-          <li>Définir un script de pitch propriétaire (2 minutes) + un email de suivi.</li>
-          <li>Fixer un <strong>quota hebdo</strong> : 10 prises de contact + suivi dans un tableau simple.</li>
-        </ol>
+      <Card className="p-5 bg-white border space-y-3">
+        <h3 className="text-lg font-semibold">Module&nbsp;3</h3>
+        <p className="text-sm text-neutral-700">
+          <strong>Résumé&nbsp;:</strong>{" "}
+          {"Pour affiner ton image et attirer plus de clients"}
+        </p>
+      </Card>
+   
+      <Card className="p-5 bg-white border space-y-3">
+        <h3 className="text-lg font-semibold">Module&nbsp;4</h3>
+        <p className="text-sm text-neutral-700">
+          <strong>Résumé&nbsp;:</strong>{" "}
+          {"Pour gérer ton activité de manière plus fluide"}
+        </p>
       </Card>
 
-      <div className="grid sm:grid-cols-2 gap-3">
-        <Button href="/quiz/lancement" variant="secondary">Refaire le test</Button>
-        <Button href="/">Voir le pack recommandé</Button>
+      {/* Astuce / nudge pack */}
+      <Card className="p-5 bg-white border space-y-3">
+        <h3 className="text-lg font-semibold">Astuce</h3>
+        <p className="text-sm text-neutral-700">
+          {"Gagnez du temps et de la clarté en choisissant directement le pack complet : vous progressez à votre rythme avec les bons outils dès le départ."}
+        </p>
+      </Card>
+
+      {/* CTA bas de page */}
+      <div className="pt-2">
+        <Button href="/offre" className="w-full">
+          Voir les modules
+        </Button>
       </div>
     </Container>
   );

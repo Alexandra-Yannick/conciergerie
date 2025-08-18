@@ -1,63 +1,80 @@
-import { Container, Card, Badge, Button } from "@/components/ui";
+// src/app/resultat/reconversion/foncer/page.js
+import { Container, Card, Button } from "@/components/ui";
 
-export const metadata = { title: "Lancement — Consolider vos bases" };
+export const metadata = { title: "Lancement - Consolidez vos bases" };
 
 export default function Page({ searchParams }) {
   const score = Number(searchParams?.score ?? 0);
-  const max   = Number(searchParams?.max ?? 20);
-  const ratio = Math.round((score / (max || 1)) * 100);
+  const max = Number(searchParams?.max ?? 20);
 
   return (
-    <Container className="mx-auto max-w-3xl p-6 space-y-8">
-      {/* SCORE en gros */}
-      <div className="text-center space-y-2">
-        <p className="text-sm text-neutral-500">Votre score</p>
-        <p className="text-5xl font-extrabold text-[var(--color-vivid)]">
-          {score} / {max}
-        </p>
-        <p className="text-lg font-medium text-neutral-600">
-          ({ratio}%)
-        </p>
-      </div>
+    <Container className="py-8 space-y-6">
+      {/* En-tête résultat */}
+      <Card className="p-5 bg-white border">
+        <div className="flex items-start justify-between">
+          <div>
+            <h1 className="text-2xl font-extrabold">Votre résultat</h1>
+            <div className="mt-2 text-xl font-bold">
+              {score} / {max}
+            </div>
+          </div>
+
+          {/* petit bouton en haut à droite */}
+          <Button
+            href="/offre"
+            className="px-3 py-2 text-xs"
+          >
+            Voir les modules
+          </Button>
+        </div>
+      </Card>
 
       {/* Message principal */}
-      <Card className="p-6 bg-white border text-center space-y-3">
-        <h1 className="text-2xl font-bold">Reposez vos fondamentaux</h1>
+      <Card className="p-5 bg-white border space-y-3">
+        <h2 className="text-xl font-bold">{"Reposez vos fondamentaux"}</h2>
         <p className="text-neutral-700">
-          Tu as peut-être commencé un peu trop vite, sans cadre clair, et tu sens que tout repose sur toi. Pas de panique : tu peux reprendre les bases, poser les bons jalons et retrouver le contrôle. 
+          {"Tu as peut-être commencé un peu trop vite, sans cadre clair, et tu sens que tout repose sur toi. Pas de panique : tu peux reprendre les bases, poser les bons jalons et retrouver le contrôle."}
         </p>
       </Card>
 
-      {/* MODULES RECOMMANDÉS */}
-      <div className="space-y-4">
-        <h2 className="text-xl font-bold text-center">Modules recommandés</h2>
-        <div className="grid gap-4 sm:grid-cols-3">
-          <Card className="p-4 text-center border hover:shadow">
-            <h3 className="font-semibold">Module 1</h3>
-            <p className="text-sm text-neutral-600">Pour te réaligner avec le métier et ton rôle</p>
-          </Card>
-          <Card className="p-4 text-center border hover:shadow">
-            <h3 className="font-semibold">Module 2</h3>
-            <p className="text-sm text-neutral-600">Pour stabiliser légalement ton activité</p>
-          </Card>
-          <Card className="p-4 text-center border hover:shadow">
-            <h3 className="font-semibold">Module 3</h3>
-            <p className="text-sm text-neutral-600">Pour créer une stratégie d’acquisition durable</p>
-          </Card>
-           <Card className="p-4 text-center border hover:shadow">
-            <h3 className="font-semibold">Dans ton cas, le pack complet est vivement conseillé. Il t’aidera à repartir sur des fondations solides sans avoir à tout recommencer.</h3>
-          </Card>
-        </div>
-      </div>
+      {/* Modules recommandés */}
+      <Card className="p-5 bg-white border space-y-3">
+        <h3 className="text-lg font-semibold">Module&nbsp;1</h3>
+        <p className="text-sm text-neutral-700">
+          <strong>Résumé&nbsp;:</strong>{" "}
+          {"Pour te réaligner avec le métier et ton rôle"}
+        </p>
+      </Card>
+
+      <Card className="p-5 bg-white border space-y-3">
+        <h3 className="text-lg font-semibold">Module&nbsp;2</h3>
+        <p className="text-sm text-neutral-700">
+          <strong>Résumé&nbsp;:</strong>{" "}
+          {"Pour stabiliser légalement ton activité"}
+        </p>
+      </Card>
+     
+      <Card className="p-5 bg-white border space-y-3">
+        <h3 className="text-lg font-semibold">Module&nbsp;3</h3>
+        <p className="text-sm text-neutral-700">
+          <strong>Résumé&nbsp;:</strong>{" "}
+          {"Pour créer une stratégie d'acquisition durable"}
+        </p>
+      </Card>
 
 
-      {/* CTA */}
-      <div className="grid sm:grid-cols-2 gap-3">
-        <Button href="/quiz/lancement" variant="secondary">
-          Voir les modules →
-        </Button>
-        <Button href="/#modules" variant="primary">
-          Voir le pack complet →
+      {/* Astuce / nudge pack */}
+      <Card className="p-5 bg-white border space-y-3">
+        <h3 className="text-lg font-semibold">Astuce</h3>
+        <p className="text-sm text-neutral-700">
+          {"Gagnez du temps et de la clarté en choisissant directement le pack complet : vous progressez à votre rythme avec les bons outils dès le départ."}
+        </p>
+      </Card>
+
+      {/* CTA bas de page */}
+      <div className="pt-2">
+        <Button href="/offre" className="w-full">
+          Voir les modules
         </Button>
       </div>
     </Container>

@@ -1,49 +1,72 @@
-import { Container, Card, Badge, Button } from "@/components/ui";
+// src/app/resultat/reconversion/foncer/page.js
+import { Container, Card, Button } from "@/components/ui";
 
-export const metadata = { title: "Lancement — Prêt à scaler" };
+export const metadata = { title: "Lancement - Prêt à scaler" };
 
 export default function Page({ searchParams }) {
   const score = Number(searchParams?.score ?? 0);
-  const max   = Number(searchParams?.max ?? 20);
-  const ratio = Math.round((score / (max || 1)) * 100);
+  const max = Number(searchParams?.max ?? 20);
 
   return (
-    <Container className="mx-auto max-w-3xl p-6 space-y-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-extrabold">Vous êtes prêt(e) à scaler</h1>
-        <Badge bg="var(--color-light)" fg="var(--color-dark)">
-          Score&nbsp;: <strong className="ml-1">{score}</strong> / {max} ({ratio}%)
-        </Badge>
-      </div>
-
+    <Container className="py-8 space-y-6">
+      {/* En-tête résultat */}
       <Card className="p-5 bg-white border">
+        <div className="flex items-start justify-between">
+          <div>
+            <h1 className="text-2xl font-extrabold">Votre résultat</h1>
+            <div className="mt-2 text-xl font-bold">
+              {score} / {max}
+            </div>
+          </div>
+
+          {/* petit bouton en haut à droite */}
+          <Button
+            href="/offre"
+            className="px-3 py-2 text-xs"
+          >
+            Voir les modules
+          </Button>
+        </div>
+      </Card>
+
+      {/* Message principal */}
+      <Card className="p-5 bg-white border space-y-3">
+        <h2 className="text-xl font-bold">Vous êtes prêt(e) à scaler&nbsp;!</h2>
         <p className="text-neutral-700">
-          Belle maturité. Il est temps d’optimiser la <strong>rentabilité</strong>, de sécuriser la <strong>qualité</strong> avec de la délégation,
-          et d’industrialiser l’<strong>acquisition</strong>.
+          {"Tu es déjà bien structuré(e), tu maîtrises les bases et tu veux passer à l’étape supérieure : croissance, rentabilité, équilibre. Tu as le bon profil pour piloter une conciergerie efficace et ambitieuse"}
         </p>
       </Card>
 
-      <Card className="p-5 bg-white border">
-        <h2 className="text-xl font-bold">Vos priorités maintenant</h2>
-        <ul className="mt-3 list-disc pl-5 text-neutral-700 space-y-1">
-          <li>Suivre vos <strong>marges</strong> par prestation et ajuster les prix/options.</li>
-          <li>Formaliser les <strong>SOP</strong> + contrôles qualité pour déléguer sereinement.</li>
-          <li>Industrialiser 2–3 canaux d’<strong>acquisition</strong> (routine hebdo + CRM léger).</li>
-        </ul>
+      {/* Modules recommandés */}
+      <Card className="p-5 bg-white border space-y-3">
+        <h3 className="text-lg font-semibold">Module&nbsp;4</h3>
+        <p className="text-sm text-neutral-700">
+          <strong>Résumé&nbsp;:</strong>{" "}
+          {"Pour automatiser, déléguer et mieux t’organiser"}
+        </p>
       </Card>
 
-      <Card className="p-5 bg-white border">
-        <h3 className="font-semibold">Prochaines étapes concrètes (15 jours)</h3>
-        <ol className="mt-2 list-decimal pl-5 text-neutral-700 space-y-1">
-          <li>Bâtir un tableau marge par mission (temps, coût, prix → % marge).</li>
-          <li>Écrire 5 SOP clés + un check qualité (ménage, clés, urgence, litige, onboarding).</li>
-          <li>Mettre en place un suivi pipeline (contacts, relances, rdv, signature).</li>
-        </ol>
+      <Card className="p-5 bg-white border space-y-3">
+        <h3 className="text-lg font-semibold">Module&nbsp;5</h3>
+        <p className="text-sm text-neutral-700">
+          <strong>Résumé&nbsp;:</strong>{" "}
+          {"Pour piloter ton activité, suivre tes indicateurs et structurer ta croissance"}
+        </p>
       </Card>
 
-      <div className="grid sm:grid-cols-2 gap-3">
-        <Button href="/quiz/lancement" variant="secondary">Refaire le test</Button>
-        <Button href="/">Voir le pack recommandé</Button>
+      {/* Astuce / nudge pack */}
+      <Card className="p-5 bg-white border space-y-3">
+        <h3 className="text-lg font-semibold">Astuce</h3>
+        <p className="text-sm text-neutral-700">
+          {"Gagnez du temps et de la clarté en choisissant directement le pack complet : vous progressez à votre rythme avec les bons outils dès le départ."}
+        </p>
+      </Card>
+
+      {/* CTA bas de page */}
+      <div className="pt-2">
+        <Button href="/offre" className="w-full">
+          Voir les modules
+        </Button>
       </div>
     </Container>
   );
