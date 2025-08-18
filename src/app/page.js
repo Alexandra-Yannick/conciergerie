@@ -3,11 +3,10 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import {
-  Check, Shield, Clock, Star, ArrowRight, Sparkles,
-  FileText, BookOpen, Briefcase, LineChart, Target, Rocket
-} from "lucide-react";
+import {Check, Shield, Clock, Star, ArrowRight, Sparkles, FileText, BookOpen, Briefcase, LineChart, Target, Rocket} from "lucide-react";
 import { Container, Card, Badge, Button } from "@/components/ui";
+import Link from "next/link";
+import TestimonialsRotator from "@/components/TestimonialsRotator";
 
 // Palette raccordée à tes variables CSS globales
 const colors = {
@@ -56,17 +55,13 @@ const TESTIMONIALS = [
   },
 ];
 
-function getRandomTestimonials(arr, n) {
-  const shuffled = [...arr].sort(() => 0.5 - Math.random());
-  return shuffled.slice(0, n);
-}
 
 const modules = [
-  { title: "Module 1 — Mix Marketing & Rôle du Prix", time: "~5 h", benefit: "Construire un positionnement clair et cohérent.", icon: <Target /> },
-  { title: "Module 2 — Pricing fondé sur la valeur perçue", time: "~6 h", benefit: "Fixer un prix crédible et justifiable.", icon: <Star /> },
-  { title: "Module 3 — Performance & Rentabilité", time: "~7 h", benefit: "Calculer marges, seuil de rentabilité et élasticités.", icon: <LineChart /> },
-  { title: "Module 4 — Concurrence & Stratégie Prix", time: "~6 h", benefit: "Positionner l’offre face au marché et ajuster.", icon: <BookOpen /> },
-  { title: "Module 5 — Lancement & Déploiement", time: "~5 h", benefit: "Plan d’action go-to-market, scénarios de prix.", icon: <Rocket /> },
+  { title: "Module 1 — Comprendre le métier", time: "~5 h", benefit: "Tout ce qu'il faut savoir avant de se lancer pour éviter les mauvaises surprises.", icon: <Target /> },
+  { title: "Module 2 — Se lancer en toute légalité", time: "~6 h", benefit: "La base solide pour démarrer sans stress administratif", icon: <Star /> },
+  { title: "Module 3 — Construire une offre rentable et pro", time: "~7 h", benefit: "Un cadre simple pour vendre vos services avec crédibilité et rentabilité.", icon: <LineChart /> },
+  { title: "Module 4 — Gagner en organisation et productivité", time: "~6 h", benefit: "La méthode pour rester serein, même avec 10 biens à gérer", icon: <BookOpen /> },
+  { title: "Module 5 — Piloter son business et grandir", time: "~5 h", benefit: "Passer du freelance débordé à l'entrepreneur qui pilote sa conciergerie.", icon: <Rocket /> },
 ];
 
 export default function Page() {
@@ -229,7 +224,7 @@ export default function Page() {
         </Card>
       </Container>
 
-      {/* Testimonials */}
+{/* Testimonials */}
 <Container className="py-10">
   <div className="mb-6">
     <h2 className="text-2xl font-bold">Ils se sont lancés</h2>
@@ -238,27 +233,12 @@ export default function Page() {
     </p>
   </div>
 
-  <div className="grid md:grid-cols-3 gap-5">
-    {getRandomTestimonials(TESTIMONIALS, 3).map((t, i) => (
-      <Card key={i} className="p-6" bg="#ffffff" border={colors.pastel}>
-        {/* étoiles */}
-        <div className="flex items-center gap-1" style={{ color: "#FFB300" }}>
-          {Array.from({ length: t.rating }).map((_, j) => (
-            <Star key={j} className="size-4 fill-current" />
-          ))}
-          {Array.from({ length: 5 - t.rating }).map((_, j) => (
-            <Star key={`o-${j}`} className="size-4" />
-          ))}
-        </div>
-
-        {/* texte */}
-        <p className="mt-3 text-sm text-neutral-700">“{t.text}”</p>
-
-        {/* auteur */}
-        <p className="mt-3 text-xs text-neutral-500">{t.name}</p>
-      </Card>
-    ))}
-  </div>
+  <TestimonialsRotator
+    items={TESTIMONIALS}
+    count={3}
+    interval={6000}
+    border={"var(--color-pastel)"} // optionnel
+  />
 </Container>
 
       {/* FAQ */}
@@ -292,7 +272,11 @@ export default function Page() {
           </Button>
           <p className="mt-2 text-xs" style={{ color: colors.pastel }}>Prix de lancement. Réservé aux 50 premiers inscrits.</p>
         </Card>
-        <p className="mt-8 text-center text-xs text-neutral-500">© {new Date().getFullYear()} — Cap Conciergerie. Tous droits réservés.</p>
+        <p className="mt-8 text-center text-xs text-neutral-500">© {new Date().getFullYear()} — Cap Conciergerie. Tous droits réservés.
+          <Link href="/cgu" className="ml-2 underline hover:text-neutral-700">
+    CGU
+  </Link>
+        </p>
       </Container>
     </div>
   );

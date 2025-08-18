@@ -54,7 +54,6 @@ export default function Page() {
             {/* Option 2 : Lancement */}
             <Button
               href="/quiz/lancement"
-              variant="secondary"
               className="w-full justify-start"
             >
               <span className="text-base sm:text-lg">J’ai déjà commencé / lancement</span>

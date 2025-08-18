@@ -38,21 +38,37 @@ export default function Page({ searchParams }) {
       </Card>
 
       {/* Modules recommandés */}
-      <Card className="p-5 bg-white border space-y-3">
-        <h3 className="text-lg font-semibold">Module&nbsp;1</h3>
-        <p className="text-sm text-neutral-700">
-          <strong>Résumé&nbsp;:</strong>{" "}
-          {"Pour t’assurer que le métier correspond vraiment à ton profil"}
-        </p>
-      </Card>
+<Card className="p-5 bg-white border space-y-3">
+  <h3 className="text-lg font-semibold">
+    {"Module\u00A01 — Comprendre le métier"}
+  </h3>
 
-      <Card className="p-5 bg-white border space-y-3">
-        <h3 className="text-lg font-semibold">Module&nbsp;3</h3>
-        <p className="text-sm text-neutral-700">
-          <strong>Résumé&nbsp;:</strong>{" "}
-          {"Pour apprendre à trouver tes premiers clients et structurer ta communication"}
-        </p>
-      </Card>
+  <ul className="list-disc pl-5 space-y-1 text-sm text-neutral-700">
+    <li>{"Compétences et qualités indispensables"}</li>
+    <li>{"Marché réel et opportunités concrètes"}</li>
+    <li>{"Attentes des propriétaires et rôle d’une conciergerie"}</li>
+  </ul>
+
+  <p className="text-sm text-neutral-700 italic">
+    {"Tout ce qu’il faut savoir avant de se lancer pour éviter les mauvaises surprises."}
+  </p>
+</Card>
+
+<Card className="p-5 bg-white border space-y-3">
+  <h3 className="text-lg font-semibold">
+    {"Module\u00A03 — Construire une offre rentable et pro"}
+  </h3>
+
+  <ul className="list-disc pl-5 space-y-1 text-sm text-neutral-700">
+    <li>{"Prestations essentielles et options à forte valeur perçue"}</li>
+    <li>{"Tarifs clairs, packs, et logique de rentabilité"}</li>
+    <li>{"Outils simples pour vendre avec crédibilité"}</li>
+  </ul>
+
+  <p className="text-sm text-neutral-700 italic">
+    {"Un cadre simple pour vendre vos services avec crédibilité et rentabilité."}
+  </p>
+</Card>
 
       {/* Astuce / nudge pack */}
       <Card className="p-5 bg-white border space-y-3">

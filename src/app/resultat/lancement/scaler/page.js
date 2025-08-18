@@ -38,21 +38,37 @@ export default function Page({ searchParams }) {
       </Card>
 
       {/* Modules recommandés */}
-      <Card className="p-5 bg-white border space-y-3">
-        <h3 className="text-lg font-semibold">Module&nbsp;4</h3>
-        <p className="text-sm text-neutral-700">
-          <strong>Résumé&nbsp;:</strong>{" "}
-          {"Pour automatiser, déléguer et mieux t’organiser"}
-        </p>
-      </Card>
+<Card className="p-5 bg-white border space-y-3">
+  <h3 className="text-lg font-semibold">
+    {"Module\u00A04 — Gagner en organisation et productivité"}
+  </h3>
 
-      <Card className="p-5 bg-white border space-y-3">
-        <h3 className="text-lg font-semibold">Module&nbsp;5</h3>
-        <p className="text-sm text-neutral-700">
-          <strong>Résumé&nbsp;:</strong>{" "}
-          {"Pour piloter ton activité, suivre tes indicateurs et structurer ta croissance"}
-        </p>
-      </Card>
+  <ul className="list-disc pl-5 space-y-1 text-sm text-neutral-700">
+    <li>{"Outils numériques utiles (du simple au scalable)"}</li>
+    <li>{"Méthodes pour gérer plusieurs biens sans surcharge"}</li>
+    <li>{"Process et checklists qui font gagner du temps"}</li>
+  </ul>
+
+  <p className="text-sm text-neutral-700 italic">
+    {"La méthode pour rester serein, même avec 10 biens à gérer."}
+  </p>
+</Card>
+
+<Card className="p-5 bg-white border space-y-3">
+  <h3 className="text-lg font-semibold">
+    {"Module\u00A05 — Piloter son business et grandir"}
+  </h3>
+
+  <ul className="list-disc pl-5 space-y-1 text-sm text-neutral-700">
+    <li>{"Indicateurs et tableaux de bord utiles (pas de vanity metrics)"}</li>
+    <li>{"Diversifier ses revenus pour sécuriser le CA"}</li>
+    <li>{"Croissance maîtrisée et équilibre pro/perso"}</li>
+  </ul>
+
+  <p className="text-sm text-neutral-700 italic">
+    {"Passer du freelance débordé à l’entrepreneur qui pilote sa conciergerie."}
+  </p>
+</Card>
 
       {/* Astuce / nudge pack */}
       <Card className="p-5 bg-white border space-y-3">

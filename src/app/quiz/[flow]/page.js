@@ -151,7 +151,7 @@ export default function Page() {
   function feedbackFor(points) {
     if (points >= 2) return { tone: "good", text: "Excellent réflexe — c’est un vrai point fort !" };
     if (points === 1) return { tone: "ok",   text: "Bonne intuition — on peut renforcer cette compétence." };
-    return { tone: "bad",  text: "Pas grave, beaucoup font cette erreur au début. On corrige ça rapidement." };
+    return null;
   }
 
   // Recharge sélection/feedback quand on change de question
