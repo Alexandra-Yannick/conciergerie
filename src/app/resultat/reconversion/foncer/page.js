@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Container, Card } from "@/components/ui";
 
 export const metadata = { title: "Reconversion — Vous êtes prêt(e) à foncer !" };
