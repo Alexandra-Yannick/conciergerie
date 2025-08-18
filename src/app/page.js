@@ -21,8 +21,45 @@ const features = [
   { icon: <Briefcase />, title: "Pensé pour la reconversion", desc: "Spécial pros de l’hôtellerie/restauration qui veulent lancer une conciergerie." },
   { icon: <LineChart />, title: "29 h de contenu actionnable", desc: "Méthodes, matrices, calculs de prix, scénarios. Zéro blabla." },
   { icon: <FileText />,  title: "Fiches pratiques exclusives", desc: "Modèles, checklists et trames prêtes à l’emploi – réservées au pack." },
-  { icon: <Shield />,     title: "Garantie 7 jours",            desc: "Essayez sans risque. Remboursement si ça ne vous convient pas." },
 ];
+
+const TESTIMONIALS = [
+  {
+    name: "Camille — Ex-réceptionniste à Bordeaux",
+    rating: 5,
+    text: "Une approche ultra concrète. Les fiches m’ont fait gagner des jours de préparation.",
+  },
+  {
+    name: "Martin — Loueur saisonnier à Nice",
+    rating: 5,
+    text: "J’ai pu structurer mon offre en 2 soirs. Les modèles sont hyper utiles pour démarrer.",
+  },
+  {
+    name: "Inès — En reconversion à Lyon",
+    rating: 4,
+    text: "Clair, direct et applicable. Le quiz m’a aidée à comprendre où creuser en priorité.",
+  },
+  {
+    name: "Alexandra — Banquière à Paris",
+    rating: 5,
+    text: "Pas de blabla, juste des outils concrets. J’ai pu lancer ma conciergerie en 2 semaines.",
+  },
+   {
+    name: "Sophie — Manager hôtelière",
+    rating: 5,
+    text: "J’ai gagné en confiance et en clarté. Les modules sont bien pensés et motivants.",
+  },
+  {
+    name: "Julien — Entrepreneur",
+    rating: 4,
+    text: "Ça m’a évité de partir dans tous les sens. Les conseils sont actionnables tout de suite.",
+  },
+];
+
+function getRandomTestimonials(arr, n) {
+  const shuffled = [...arr].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, n);
+}
 
 const modules = [
   { title: "Module 1 — Mix Marketing & Rôle du Prix", time: "~5 h", benefit: "Construire un positionnement clair et cohérent.", icon: <Target /> },
@@ -71,7 +108,6 @@ export default function Page() {
 
             <div className="mt-6 flex flex-wrap gap-3">
               <Badge bg={colors.light}><Clock className="mr-1 size-3"/> 29 h de formation</Badge>
-              <Badge bg={colors.light}><Shield className="mr-1 size-3"/> Satisfait ou remboursé 7 jours</Badge>
               <Badge bg={colors.light}><Sparkles className="mr-1 size-3"/> Fiches exclusives dans le pack</Badge>
             </div>
           </div>
@@ -82,7 +118,7 @@ export default function Page() {
               <ul className="space-y-3 text-sm text-neutral-700">
                 <li className="flex items-start gap-3"><Check className="mt-0.5 size-4" style={{ color: colors.vivid }} /> Un plan d’action concret pour passer de salarié à concierge indépendant</li>
                 <li className="flex items-start gap-3"><Check className="mt-0.5 size-4" style={{ color: colors.vivid }} /> Des exercices et matrices prêts à l’emploi, adaptés au marché français</li>
-                <li className="flex items-start gap-3"><Check className="mt-0.5 size-4" style={{ color: colors.vivid }} /> Les fiches pratiques <strong>réservées au pack</strong> pour gagner des jours</li>
+                <li className="flex items-start gap-3"><Check className="mt-0.5 size-4" style={{ color: colors.vivid }} /> Les fiches pratiques sont réservées au pack pour gagner des jours</li>
               </ul>
             </Card>
           </div>
@@ -152,7 +188,7 @@ export default function Page() {
                 <li className="flex gap-2 opacity-60"><Check className="size-4"/> Fiches pratiques exclusives (non incluses)</li>
               </ul>
             </div>
-            <Button className="mt-6 w-full" variant="secondary" onClick={() => router.push("/quiz")}>
+            <Button className="mt-6 w-full" variant="secondary" onClick={() => router.push("/offre")}>
               Choisir un module
             </Button>
           </Card>
@@ -174,12 +210,11 @@ export default function Page() {
               <li className="flex gap-2"><Check className="size-4" style={{ color: colors.vivid }} /> Les 5 modules (PDF)</li>
               <li className="flex gap-2"><Check className="size-4" style={{ color: colors.vivid }} /> Fiches pratiques exclusives (modèles, checklists)</li>
               <li className="flex gap-2"><Check className="size-4" style={{ color: colors.vivid }} /> Accès immédiat + mises à jour</li>
-              <li className="flex gap-2"><Check className="size-4" style={{ color: colors.vivid }} /> Garantie 7 jours</li>
             </ul>
             <div className="mt-6">
-              <Button className="w-full" onClick={handleBuyPack}>
-                Commander maintenant <ArrowRight className="ml-2 inline size-4"/>
-              </Button>
+          <Button className="w-full" href="/offre">
+                Commander maintenant <ArrowRight className="ml-2 inline size-4" />
+          </Button>
               <p className="mt-2 text-xs text-center" style={{ color: colors.vivid }}>
                 Offre de lancement limitée aux 50 premiers
               </p>
@@ -195,23 +230,36 @@ export default function Page() {
       </Container>
 
       {/* Testimonials */}
-      <Container className="py-10">
-        <div className="mb-6">
-          <h2 className="text-2xl font-bold">Ils se sont lancés</h2>
-          <p className="text-neutral-600">Quelques retours d’apprenants (placeholders, à remplacer par vos témoignages réels).</p>
-        </div>
-        <div className="grid md:grid-cols-3 gap-5">
-          {[1,2,3].map((i)=> (
-            <Card key={i} className="p-6" bg="#ffffff" border={colors.pastel}>
-              <div className="flex items-center gap-2" style={{ color: "#FFB300" }}>
-                {Array.from({length:5}).map((_,j)=> <Star key={j} className="size-4 fill-current"/>)}
-              </div>
-              <p className="mt-3 text-sm text-neutral-700">“Une approche ultra concrète. Les fiches m’ont fait gagner des jours de préparation.”</p>
-              <p className="mt-3 text-xs text-neutral-500">Camille — Ex-réceptionniste</p>
-            </Card>
+<Container className="py-10">
+  <div className="mb-6">
+    <h2 className="text-2xl font-bold">Ils se sont lancés</h2>
+    <p className="text-neutral-600">
+      Quelques retours d’apprenants (placeholders, à remplacer par vos témoignages réels).
+    </p>
+  </div>
+
+  <div className="grid md:grid-cols-3 gap-5">
+    {getRandomTestimonials(TESTIMONIALS, 3).map((t, i) => (
+      <Card key={i} className="p-6" bg="#ffffff" border={colors.pastel}>
+        {/* étoiles */}
+        <div className="flex items-center gap-1" style={{ color: "#FFB300" }}>
+          {Array.from({ length: t.rating }).map((_, j) => (
+            <Star key={j} className="size-4 fill-current" />
+          ))}
+          {Array.from({ length: 5 - t.rating }).map((_, j) => (
+            <Star key={`o-${j}`} className="size-4" />
           ))}
         </div>
-      </Container>
+
+        {/* texte */}
+        <p className="mt-3 text-sm text-neutral-700">“{t.text}”</p>
+
+        {/* auteur */}
+        <p className="mt-3 text-xs text-neutral-500">{t.name}</p>
+      </Card>
+    ))}
+  </div>
+</Container>
 
       {/* FAQ */}
       <Container className="py-10">
@@ -230,10 +278,6 @@ export default function Page() {
           <Card className="p-5" bg="#ffffff" border={colors.pastel}>
             <h3 className="font-semibold">Puis-je acheter un seul module ?</h3>
             <p className="mt-2 text-sm text-neutral-700">Oui, 99 € par module. Les fiches pratiques restent exclusives au pack complet.</p>
-          </Card>
-          <Card className="p-5" bg="#ffffff" border={colors.pastel}>
-            <h3 className="font-semibold">Et si la formation ne me convient pas ?</h3>
-            <p className="mt-2 text-sm text-neutral-700">Vous disposez d’une garantie satisfait ou remboursé pendant 7 jours.</p>
           </Card>
         </div>
       </Container>

@@ -1,3 +1,4 @@
+
 // src/app/quiz/page.js (Server Component)
 import { Container, Card, Button, Badge, colors } from "@/components/ui";
 import { Compass, ArrowRight, Info, Sparkles, Clock } from "lucide-react";
