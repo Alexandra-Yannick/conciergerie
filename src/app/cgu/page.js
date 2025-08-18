@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 // src/app/cgu/page.js
 import { Container } from "@/components/ui";
 
