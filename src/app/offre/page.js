@@ -174,7 +174,7 @@ export default function Page() {
         <div className="grid lg:grid-cols-3 gap-6 mt-10">
           {/* À l’unité */}
           <Card className="p-6 flex flex-col" bg="#fff" border={colors.pastel}>
-            <Badge>Module à l’unité</Badge>
+            <Badge bg={colors.light} fg={colors.dark}>Module à l'unité</Badge>
             <h3 className="mt-3 text-xl font-bold">Idéal pour un besoin précis</h3>
             <p className="mt-1 text-sm text-neutral-600">
               {"Un module (PDF). Fiches pratiques non incluses."}
@@ -285,7 +285,6 @@ export default function Page() {
 
           <Button
             href={`/api/checkout?sku=module_${m.key}`}
-            variant="secondary"
             className="mt-4 w-full"
           >
             Acheter ce module

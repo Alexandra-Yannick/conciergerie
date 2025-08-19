@@ -188,21 +188,28 @@ export default function Page() {
     }
     // fin : calcul résultat
     const total = Object.values(answers).reduce((a, b) => a + b, 0);
-    const max = questions.reduce((acc, qq) => acc + Math.max(...qq.options.map(o => o.points)), 0);
+    const max = questions.reduce(
+      (acc, qq) => acc + Math.max(...qq.options.map(o => o.points)), 0);
 
-    if (flow === "reconversion") {
-      let path = "/resultat/reconversion/bonne-voie";
-      if (total >= 10 && total <= 15) path = "/resultat/reconversion/explorer";
-      if (total >= 16) path = "/resultat/reconversion/foncer";
-      router.push(`${path}?score=${total}&max=${max}`);
-    } else {
-      let path = "/resultat/lancement/bases";
-      if (total >= 10 && total <= 15) path = "/resultat/lancement/structurer";
-      if (total >= 16) path = "/resultat/lancement/scaler";
-      router.push(`${path}?score=${total}&max=${max}`);
-    }
+// --- destination finale en fonction du flow ---
+  let path = "/quiz"; // fallback
+  if (flow === "reconversion") {
+    path = "/resultat/reconversion/bonne-voie";
+    if (total >= 10 && total <= 15) path = "/resultat/reconversion/explorer";
+    if (total >= 16) path = "/resultat/reconversion/foncer";
+  } else if (flow === "lancement") {
+    path = "/resultat/lancement/bases";
+    if (total >= 10 && total <= 15) path = "/resultat/lancement/structurer";
+    if (total >= 16) path = "/resultat/lancement/scaler";
   }
 
+  // --- URL finale + passage par la passerelle ---
+  const finalUrl = `${path}?score=${total}&max=${max}`;
+  const next = encodeURIComponent(finalUrl);
+
+  // (on passe aussi le flow/score/max en clair si tu veux les logger côté API)
+  router.push(`/acces-resultats?next=${next}&flow=${encodeURIComponent(flow)}&score=${total}&max=${max}`);
+}
   const fbColor =
     lastFeedback?.tone === "good" ? "#16a34a" :
     lastFeedback?.tone === "ok"   ? "#f59e0b" :

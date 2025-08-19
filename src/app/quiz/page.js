@@ -38,7 +38,7 @@ export default function Page() {
         <Card className="mt-8 p-6 bg-white border">
           <h2 className="text-lg font-semibold flex items-center gap-2">
             <Compass className="size-5" style={{ color: colors.vivid }} />
-            🧭 Où en êtes-vous aujourd’hui ?
+            Où en êtes-vous aujourd’hui ?
           </h2>
 
           <div className="mt-5 grid gap-3">
