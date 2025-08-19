@@ -217,6 +217,7 @@ export default function Page() {
 
   return (
     <Container className="py-10">
+      
       {/* Cas sans questions (rendu après hooks, pas d’early return) */}
       {!hasQuestions ? (
         <Card className="p-6 bg-white border">
