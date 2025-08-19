@@ -30,7 +30,6 @@ export default function Page() {
           <p className="mt-4 flex flex-wrap items-center gap-2 text-sm text-neutral-600">
             <Badge bg="var(--color-light)"><Clock className="mr-1 size-3" /> 2–3 min</Badge>
             <Badge bg="var(--color-light)"><Sparkles className="mr-1 size-3" /> Plan d’action personnalisé</Badge>
-            <Badge bg="var(--color-light)"><Info className="mr-1 size-3" /> Aucune inscription requise</Badge>
           </p>
         </div>
 
