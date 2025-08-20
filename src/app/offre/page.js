@@ -3,6 +3,7 @@ import { Container, Card, Badge, Button, colors } from "@/components/ui";
 import { Check, ArrowRight, Sparkles, Clock, Shield, Star, BookOpen, LineChart, Target, Rocket } from "lucide-react";
 import TestimonialsRotator from "@/components/TestimonialsRotator";
 import { TESTIMONIALS } from "@/data/testimonials";
+import CheckoutButton from "@/components/CheckoutButton";
 
 export const metadata = {
   title: "Offre — Modules à l’unité, pack thématique ou complet",
@@ -249,10 +250,10 @@ export default function Page() {
             </ul>
 
             {/* TODO: brancher Stripe (sku=pack_complet) */}
-            <Button href="/api/checkout?sku=pack_complet" className="mt-6 w-full">
-              Acheter le pack complet
-            </Button>
-          </Card>
+<CheckoutButton sku="pack_complet" className="mt-4 w-full">
+  Acheter ce module
+</CheckoutButton>          
+  </Card>
         </div>
 
 {/* LISTE DES MODULES */}
@@ -287,12 +288,10 @@ export default function Page() {
             <span className="text-base font-bold">99&nbsp;€</span>
           </div>
 
-          <Button
-            href={`/api/checkout?sku=module_${m.key}`}
-            className="mt-4 w-full"
-          >
-            Acheter ce module
-          </Button>
+<CheckoutButton sku={`module_${m.key}`} className="mt-4 w-full">
+  Acheter ce module
+</CheckoutButton>
+
         </Card>
       );
     })}
@@ -324,10 +323,10 @@ export default function Page() {
             </ul>
 
             {/* TODO: brancher Stripe (sku=pack_complet) */}
-            <Button href="/api/checkout?sku=pack_complet" className="mt-6 w-full">
-              Acheter le pack complet
-            </Button>
-          </Card>
+<CheckoutButton sku="pack_complet" className="mt-4 w-full">
+  Acheter ce module
+</CheckoutButton>   
+       </Card>
 
   </div>
 </div>
@@ -374,11 +373,10 @@ export default function Page() {
             <div className="text-sm text-neutral-500">~<s>{p.compareAt}</s></div>
           )}
         </div>
-
         {/* CTA */}
-        <Button href={`/api/checkout?sku=${p.sku}`} className="mt-4 w-full">
-          Choisir ce pack 
-        </Button>
+<CheckoutButton sku={`${p.key}`} className="mt-4 w-full">
+  Acheter ce module
+</CheckoutButton>   
       </Card>
     ))}
               <Card className="p-6 flex flex-col" bg="#fff" border={colors.vivid}>
@@ -409,10 +407,10 @@ export default function Page() {
             </ul>
 
             {/* TODO: brancher Stripe (sku=pack_complet) */}
-            <Button href="/api/checkout?sku=pack_complet" className="mt-6 w-full">
-              Acheter le pack complet
-            </Button>
-          </Card>
+<CheckoutButton sku="pack_complet" className="mt-4 w-full">
+  Acheter ce module
+</CheckoutButton>          
+</Card>
 
   </div>
 </div>
