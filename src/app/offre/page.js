@@ -166,7 +166,7 @@ export default function Page() {
           </p>
           <p className="mt-4 flex flex-wrap items-center gap-2 text-sm text-neutral-600">
             <Badge bg="var(--color-light)"><Clock className="mr-1 size-3" /> 29&nbsp;h au total</Badge>
-            <Badge bg="var(--color-light)"><Sparkles className="mr-1 size-3" /> Fiches pratiques (pack & complet)</Badge>
+            <Badge bg="var(--color-light)"><Sparkles className="mr-1 size-3" /> Fiches pratiques pour le pack complet</Badge>
           </p>
         </div>
 
@@ -191,8 +191,8 @@ export default function Page() {
               <li className="flex gap-2 opacity-60"><Check className="size-4" /> Fiches pratiques exclusives (non incluses)</li>
             </ul>
 
-            <Button href="#modules" variant="secondary" className="mt-6 w-full">
-              Choisir un module <ArrowRight className="ml-2 inline size-4" />
+            <Button href="#modules" className="mt-6 w-full">
+              Choisir un module 
             </Button>
           </Card>
 
@@ -212,20 +212,24 @@ export default function Page() {
             <ul className="mt-4 space-y-2 text-sm text-neutral-700">
               <li className="flex gap-2"><Check className="size-4" style={{ color: colors.vivid }} /> M2&nbsp;+&nbsp;M3 (PDF)</li>
               <li className="flex gap-2"><Check className="size-4" style={{ color: colors.vivid }} /> Exercices et matrices</li>
-              <li className="flex gap-2"><Check className="size-4" style={{ color: colors.vivid }} /> Fiches pratiques incluses</li>
             </ul>
 
             {/* TODO: brancher Stripe (sku=pack_prix_renta) */}
-            <Button href="/api/checkout?sku=pack_prix_renta" className="mt-6 w-full">
-              Prendre le pack <ArrowRight className="ml-2 inline size-4" />
+            <Button href="#packs" className="mt-6 w-full">
+              Choisir un pack 
             </Button>
           </Card>
 
           {/* Complet */}
           <Card className="p-6 flex flex-col" bg="#fff" border={colors.vivid}>
             <div className="flex items-center justify-between">
-              <Badge bg={colors.pastel} fg={colors.dark}>Recommandé</Badge>
-              <span className="text-xs" style={{ color: colors.vivid }}>80% choisissent cette option</span>
+            <Badge 
+            bg={colors.vivid} 
+            fg="#a10303ff" 
+            className="text-sm font-bold px-3 py-1"
+            >Recommandé</Badge>
+
+              <span className="text-xs bold" style={{ color: colors.vivid }}>80% choisissent cette option</span>
             </div>
             <h3 className="mt-3 text-xl font-bold">Complet (5 modules)</h3>
             <p className="mt-1 text-sm text-neutral-600">
@@ -241,12 +245,12 @@ export default function Page() {
             <ul className="mt-4 space-y-2 text-sm text-neutral-700">
               <li className="flex gap-2"><Check className="size-4" style={{ color: colors.vivid }} /> Les 5 modules (PDF)</li>
               <li className="flex gap-2"><Check className="size-4" style={{ color: colors.vivid }} /> Fiches pratiques incluses</li>
-              <li className="flex gap-2"><Check className="size-4" style={{ color: colors.vivid }} /> Accès immédiat + mises à jour</li>
+              <li className="flex gap-2"><Check className="size-4" style={{ color: colors.vivid }} /> Accès immédiat</li>
             </ul>
 
             {/* TODO: brancher Stripe (sku=pack_complet) */}
             <Button href="/api/checkout?sku=pack_complet" className="mt-6 w-full">
-              Commander maintenant <ArrowRight className="ml-2 inline size-4" />
+              Acheter le pack complet
             </Button>
           </Card>
         </div>
@@ -292,6 +296,39 @@ export default function Page() {
         </Card>
       );
     })}
+          <Card className="p-6 flex flex-col" bg="#fff" border={colors.vivid}>
+            <div className="flex items-center justify-between">
+            <Badge 
+            bg={colors.vivid} 
+            fg="#a10303ff" 
+            className="text-sm font-bold px-3 py-1"
+            >Recommandé</Badge>
+
+              <span className="text-xs bold" style={{ color: colors.vivid }}>80% choisissent cette option</span>
+            </div>
+            <h3 className="mt-3 text-xl font-bold">Complet (5 modules)</h3>
+            <p className="mt-1 text-sm text-neutral-600">
+              29&nbsp;h de formation + fiches pratiques exclusives (modèles, checklists).
+            </p>
+
+            <div className="mt-5 flex items-end gap-3">
+              <div className="text-5xl font-extrabold">390&nbsp;€</div>
+              <div className="text-sm text-neutral-500">TTC</div>
+              <div className="text-sm text-neutral-500">~<s>495&nbsp;€</s></div>
+            </div>
+
+            <ul className="mt-4 space-y-2 text-sm text-neutral-700">
+              <li className="flex gap-2"><Check className="size-4" style={{ color: colors.vivid }} /> Les 5 modules (PDF)</li>
+              <li className="flex gap-2"><Check className="size-4" style={{ color: colors.vivid }} /> Fiches pratiques incluses</li>
+              <li className="flex gap-2"><Check className="size-4" style={{ color: colors.vivid }} /> Accès immédiat</li>
+            </ul>
+
+            {/* TODO: brancher Stripe (sku=pack_complet) */}
+            <Button href="/api/checkout?sku=pack_complet" className="mt-6 w-full">
+              Acheter le pack complet
+            </Button>
+          </Card>
+
   </div>
 </div>
 
@@ -340,10 +377,43 @@ export default function Page() {
 
         {/* CTA */}
         <Button href={`/api/checkout?sku=${p.sku}`} className="mt-4 w-full">
-          Choisir ce pack <ArrowRight className="ml-2 inline size-4" />
+          Choisir ce pack 
         </Button>
       </Card>
     ))}
+              <Card className="p-6 flex flex-col" bg="#fff" border={colors.vivid}>
+            <div className="flex items-center justify-between">
+            <Badge 
+            bg={colors.vivid} 
+            fg="#a10303ff" 
+            className="text-sm font-bold px-3 py-1"
+            >Recommandé</Badge>
+
+              <span className="text-xs bold" style={{ color: colors.vivid }}>80% choisissent cette option</span>
+            </div>
+            <h3 className="mt-3 text-xl font-bold">Complet (5 modules)</h3>
+            <p className="mt-1 text-sm text-neutral-600">
+              29&nbsp;h de formation + fiches pratiques exclusives (modèles, checklists).
+            </p>
+
+            <div className="mt-5 flex items-end gap-3">
+              <div className="text-5xl font-extrabold">390&nbsp;€</div>
+              <div className="text-sm text-neutral-500">TTC</div>
+              <div className="text-sm text-neutral-500">~<s>495&nbsp;€</s></div>
+            </div>
+
+            <ul className="mt-4 space-y-2 text-sm text-neutral-700">
+              <li className="flex gap-2"><Check className="size-4" style={{ color: colors.vivid }} /> Les 5 modules (PDF)</li>
+              <li className="flex gap-2"><Check className="size-4" style={{ color: colors.vivid }} /> Fiches pratiques incluses</li>
+              <li className="flex gap-2"><Check className="size-4" style={{ color: colors.vivid }} /> Accès immédiat</li>
+            </ul>
+
+            {/* TODO: brancher Stripe (sku=pack_complet) */}
+            <Button href="/api/checkout?sku=pack_complet" className="mt-6 w-full">
+              Acheter le pack complet
+            </Button>
+          </Card>
+
   </div>
 </div>
 
