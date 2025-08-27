@@ -15,6 +15,7 @@ export default function Page({ searchParams }) {
       <h1 className="text-2xl font-extrabold">Paiement réussi ✅</h1>
       <p className="mt-2 text-neutral-700">
         Merci pour votre achat. Nous préparons l’envoi de vos documents.
+        Vous allez recevoir les modules par email. Pensez à vérifier vos spams.
       </p>
 
 
