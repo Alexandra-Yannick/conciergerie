@@ -88,7 +88,7 @@ export default function Page() {
             </motion.h1>
 
             <p className="mt-4 text-lg text-neutral-700 max-w-2xl">
-              Une formation complète en 5 modules (29 h), conçue pour les pros de l’hôtellerie/restauration en reconversion. Sans vidéos, 100% actionnable.
+              Une formation complète en 5 modules (29 h), conçue pour les pros de l’hôtellerie/restauration en reconversion. Sans vidéo, 100% actionnable.
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -114,6 +114,8 @@ export default function Page() {
                 <li className="flex items-start gap-3"><Check className="mt-0.5 size-4" style={{ color: colors.vivid }} /> Un plan d’action concret pour passer de salarié à concierge indépendant</li>
                 <li className="flex items-start gap-3"><Check className="mt-0.5 size-4" style={{ color: colors.vivid }} /> Des exercices et matrices prêts à l’emploi, adaptés au marché français</li>
                 <li className="flex items-start gap-3"><Check className="mt-0.5 size-4" style={{ color: colors.vivid }} /> Les fiches pratiques sont réservées au pack pour gagner des jours</li>
+                <li className="flex items-start gap-3"><Check className="mt-0.5 size-4" style={{ color: colors.vivid }} /> Nouvelle version améliorée et renforcée après 5 années de retour clients</li>
+
               </ul>
             </Card>
           </div>
@@ -211,7 +213,7 @@ export default function Page() {
                 Commander maintenant <ArrowRight className="ml-2 inline size-4" />
           </Button>
               <p className="mt-2 text-xs text-center" style={{ color: colors.vivid }}>
-                Offre de lancement limitée aux 50 premiers
+                Offre de lancement limitée aux 50 premiers clients
               </p>
             </div>
           </Card>
