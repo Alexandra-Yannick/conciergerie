@@ -77,7 +77,7 @@ export default function Page() {
         <div className="grid lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-7">
             <Badge className="mb-4" bg={colors.pastel} fg={colors.dark}>
-              Pack Conciergerie • Édition lancement
+              Pack Conciergerie • Édition lancement nouvelle version 2025
             </Badge>
 
             <motion.h1
@@ -88,7 +88,7 @@ export default function Page() {
             </motion.h1>
 
             <p className="mt-4 text-lg text-neutral-700 max-w-2xl">
-              Une formation complète en 5 modules (29 h), conçue pour les pros de l’hôtellerie/restauration en reconversion. Sans vidéo, 100% actionnable.
+              Une formation complète en 5 modules (29 h), conçue pour les pros de l'immobilier en reconversion. Sans vidéo, 100% actionnable. Nouvelle version 2025 après 5 ans de retours clients.
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -97,7 +97,7 @@ export default function Page() {
                 Commencer le questionnaire <ArrowRight className="ml-2 inline size-4" />
               </Button>
               <Badge bg={colors.light} fg={colors.vivid}>
-                Plus que <strong className="mx-1">{slotsLeft}</strong> places au tarif lancement
+                Plus que <strong className="mx-1">14</strong> places au tarif lancement
               </Badge>
             </div>
 
