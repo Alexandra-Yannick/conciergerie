@@ -97,7 +97,7 @@ export default function Page() {
                 Commencer le questionnaire <ArrowRight className="ml-2 inline size-4" />
               </Button>
               <Badge bg={colors.light} fg={colors.vivid}>
-                Plus que <strong className="mx-1">{14}</strong> places au tarif lancement
+                Plus que <strong className="mx-1">{"14"}</strong> places au tarif lancement
               </Badge>
             </div>
 
