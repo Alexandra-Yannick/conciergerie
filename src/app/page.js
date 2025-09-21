@@ -88,7 +88,7 @@ export default function Page() {
             </motion.h1>
 
             <p className="mt-4 text-lg text-neutral-700 max-w-2xl">
-              {"Une formation complète en 5 modules (29 h), conçue pour les pros de l'immobilier en reconversion. Sans vidéo, 100% actionnable. Nouvelle version 2025 après 5 ans de retours clients."}
+              {"Une formation complète en 5 modules (29 h), conçue pour toutes les personnes en reconversion. Sans vidéo, 100% actionnable. Nouvelle version 2025 après 5 ans de retours clients."}
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-3">
