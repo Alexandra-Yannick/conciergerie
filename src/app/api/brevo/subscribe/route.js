@@ -2,12 +2,12 @@
 import { NextResponse } from "next/server";
 
 const LISTS = {
-  "reconversion:0-9": 4,
-  "reconversion:10-15": 5,
-  "reconversion:16-20": 6,
-  "lancement:0-9": 7,
-  "lancement:10-15": 8,
-  "lancement:16-20": 9,
+  "reconversion:0-9": 25,
+  "reconversion:10-15": 26,
+  "reconversion:16-20": 27,
+  "lancement:0-9": 28,
+  "lancement:10-15": 29,
+  "lancement:16-20": 30,
 };
 
 function pickBucket(score) {
