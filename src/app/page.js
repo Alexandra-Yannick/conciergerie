@@ -72,12 +72,24 @@ export default function Page() {
 
   return (
     <div className="text-neutral-900" style={{ backgroundImage: `linear-gradient(to bottom, ${colors.light}, #ffffff)` }}>
+      {/* Navigation */}
+      <nav className="py-4">
+        <Container className="flex justify-end">
+          <Link
+            href="/blog"
+            className="inline-flex items-center gap-2 px-6 py-3 text-lg font-semibold text-white bg-black rounded-full hover:bg-neutral-800 transition-all active:scale-95"          >
+            <BookOpen className="size-4" />
+            Blog
+          </Link>
+        </Container>
+      </nav>
+
       {/* Hero */}
-      <Container className="pt-14 pb-10">
+      <Container className="pt-6 pb-10">
         <div className="grid lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-7">
             <Badge className="mb-4" bg={colors.pastel} fg={colors.dark}>
-              Pack Conciergerie • Édition lancement nouvelle version 2025
+              Pack Conciergerie • Édition lancement nouvelle version 2026
             </Badge>
 
             <motion.h1
@@ -88,7 +100,7 @@ export default function Page() {
             </motion.h1>
 
             <p className="mt-4 text-lg text-neutral-700 max-w-2xl">
-              {"Une formation complète en 5 modules (29 h), conçue pour toutes les personnes en reconversion. Sans vidéo, 100% actionnable. Nouvelle version 2025 après 5 ans de retours clients."}
+              {"Une formation complète en 5 modules (29 h), conçue pour toutes les personnes en reconversion. Sans vidéo, 100% actionnable. Nouvelle version 2026 après 5 ans de retours clients."}
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -261,6 +273,12 @@ export default function Page() {
             <h3 className="font-semibold">Puis-je acheter un seul module ?</h3>
             <p className="mt-2 text-sm text-neutral-700">Oui, 99 € par module. Les fiches pratiques restent exclusives au pack complet.</p>
           </Card>
+          <Link href="/blog" className="block group">
+            <Card className="p-5 transition-shadow hover:shadow-md" bg="#ffffff" border={colors.pastel}>
+              <h3 className="font-semibold group-hover:text-[var(--color-vivid)] transition-colors">Voir les articles du blog</h3>  
+              <p className="mt-2 text-sm text-neutral-700">Retrouvez tous les articles sur la conciergerie et les bonnes pratiques pour démarrer votre business.</p>
+            </Card>
+          </Link>
         </div>
       </Container>
 
