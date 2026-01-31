@@ -63,7 +63,7 @@ function ArticleCard({ article, index }) {
             </div>
 
             <div className="mt-4 flex items-center text-sm font-medium" style={{ color: colors.vivid }}>
-              Lire l'article
+              Lire l&apos;article
               <ArrowRight className="ml-1 size-4 group-hover:translate-x-1 transition-transform" />
             </div>
           </div>
@@ -91,7 +91,7 @@ export default function BlogPage() {
             <div className="p-2 rounded-full bg-white border border-neutral-200 group-hover:border-black transition-all">
               <ArrowLeft className="size-4" />
             </div>
-            Retour à l'accueil
+            Retour à l&apos;accueil
           </Link>
         </div>
 
@@ -110,11 +110,11 @@ export default function BlogPage() {
           </motion.h1>
 
           <p className="mt-4 text-lg text-neutral-700">
-            Conseils pratiques, retours d'expérience et stratégies pour réussir dans le métier de concierge.
+            Conseils pratiques, retours d&apos;expérience et stratégies pour réussir dans le métier de concierge.
           </p>
         </div>
       </Container>
-      
+
       {/* Articles Grid */}
       <Container className="pb-16">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

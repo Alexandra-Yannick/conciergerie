@@ -169,7 +169,7 @@ export default function ArticlePage() {
           <BookOpen className="size-12 mx-auto text-neutral-400 mb-4" />
           <h1 className="text-2xl font-bold">Article non trouvé</h1>
           <p className="mt-2 text-neutral-600">
-            Cet article n'existe pas ou a été déplacé.
+            Cet article n&apos;existe pas ou a été déplacé.
           </p>
           <Button className="mt-6" href="/blog">
             <ArrowLeft className="mr-2 size-4" />
