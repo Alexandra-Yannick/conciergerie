@@ -10,7 +10,9 @@ const montserrat = Montserrat({
 export const metadata = {
   title: "Cap Conciergerie",
   description: "Questionnaire et modules — Édition lancement",
-  // robots: { index: false, follow: false },
+  other: {
+    'Content-Security-Policy': 'upgrade-insecure-requests',
+  },// robots: { index: false, follow: false },
 };
 
 export default function RootLayout({ children }) {
