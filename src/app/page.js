@@ -93,12 +93,9 @@ export default function Page() {
               Pack Conciergerie • Édition lancement nouvelle version 2026
             </Badge>
 
-            <motion.h1
-              initial={{opacity:0, y:10}} animate={{opacity:1, y:0}} transition={{duration:0.5}}
-              className="text-4xl/tight sm:text-5xl/tight font-extrabold"
-            >
+            <h1 className="text-4xl/tight sm:text-5xl/tight font-extrabold">
               En 4 jours, maîtrisez les bases pour créer votre conciergerie et devenir votre propre patron
-            </motion.h1>
+            </h1>
 
             <p className="mt-4 text-lg text-neutral-700 max-w-2xl">
               {"Une formation complète en 5 modules (29 h), conçue pour toutes les personnes en reconversion. Sans vidéo, 100% actionnable. Nouvelle version 2026 après 5 ans de retours clients."}
@@ -109,7 +106,7 @@ export default function Page() {
               <Button onClick={() => router.push("/quiz")}>
                 Commencer le questionnaire <ArrowRight className="ml-2 inline size-4" />
               </Button>
-              <Badge bg={colors.light} fg={colors.vivid}>
+              <Badge bg={colors.light} fg={colors.vividText}>
                 Plus que <strong className="mx-1">{"14"}</strong> places au tarif lancement
               </Badge>
             </div>
