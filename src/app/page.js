@@ -1,8 +1,4 @@
-"use client";
-
-import React, { useState } from "react";
-import { useRouter } from "next/navigation";
-import {Check, Shield, Clock, Star, ArrowRight, Sparkles, FileText, BookOpen, Briefcase, LineChart, Target, Rocket} from "lucide-react";
+import {Check, Clock, Star, ArrowRight, Sparkles, FileText, BookOpen, Briefcase, LineChart, Target, Rocket} from "lucide-react";
 import { Container, Card, Badge, Button } from "@/components/ui";
 import Link from "next/link";
 import TestimonialsRotator from "@/components/TestimonialsRotator";
@@ -65,11 +61,6 @@ const modules = [
 ];
 
 export default function Page() {
-  const [slotsLeft, setSlotsLeft] = useState(50);
-  const router = useRouter();
-
-  const handleBuyPack = () => setSlotsLeft((s) => (s > 0 ? s - 1 : 0));
-
   return (
     <main className="text-neutral-900" style={{ backgroundImage: `linear-gradient(to bottom, ${colors.light}, #ffffff)` }}>
       {/* Navigation */}
@@ -102,7 +93,7 @@ export default function Page() {
 
             <div className="mt-6 flex flex-wrap items-center gap-3">
               {/* TEMP : on envoie vers /quiz en attendant Stripe */}
-              <Button onClick={() => router.push("/quiz")}>
+              <Button href="/quiz">
                 Commencer le questionnaire <ArrowRight className="ml-2 inline size-4" />
               </Button>
               <Badge bg={colors.light} fg={colors.vividText}>
@@ -195,7 +186,7 @@ export default function Page() {
                 <li className="flex gap-2 text-neutral-500"><Check className="size-4"/> Fiches pratiques exclusives (non incluses)</li>
               </ul>
             </div>
-            <Button className="mt-6 w-full" variant="secondary" onClick={() => router.push("/offre")}>
+            <Button className="mt-6 w-full" variant="secondary" href="/offre">
               Choisir un module
             </Button>
           </Card>
@@ -285,7 +276,7 @@ export default function Page() {
         <Card className="p-8 text-center" bg={colors.dark} border={colors.dark}>
           <h2 className="text-2xl font-extrabold text-white">Dans une semaine, vous pourriez préparer vos premières prestations</h2>
           <p className="mt-2" style={{ color: colors.light }}>Passez à l’action avec un plan clair et des outils prêts à l’emploi.</p>
-          <Button className="mt-5" onClick={() => router.push("/quiz")}>
+          <Button className="mt-5" href="/quiz">
             Commencer le questionnaire <ArrowRight className="ml-2 inline size-4" />
           </Button>
           <p className="mt-2 text-xs" style={{ color: colors.pastel }}>Prix de lancement. Réservé aux 50 premiers inscrits.</p>
