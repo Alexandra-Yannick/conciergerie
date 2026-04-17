@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import { motion } from "framer-motion";
 import {Check, Shield, Clock, Star, ArrowRight, Sparkles, FileText, BookOpen, Briefcase, LineChart, Target, Rocket} from "lucide-react";
 import { Container, Card, Badge, Button } from "@/components/ui";
 import Link from "next/link";
@@ -193,7 +192,7 @@ export default function Page() {
               <ul className="mt-4 space-y-2 text-sm text-neutral-700">
                 <li className="flex gap-2"><Check className="size-4" style={{ color: colors.vivid }} /> PDF complet (~5–7 h de travail)</li>
                 <li className="flex gap-2"><Check className="size-4" style={{ color: colors.vivid }} /> Exercices et matrices</li>
-                <li className="flex gap-2 text-neutral-400"><Check className="size-4"/> Fiches pratiques exclusives (non incluses)</li>
+                <li className="flex gap-2 text-neutral-500"><Check className="size-4"/> Fiches pratiques exclusives (non incluses)</li>
               </ul>
             </div>
             <Button className="mt-6 w-full" variant="secondary" onClick={() => router.push("/offre")}>
