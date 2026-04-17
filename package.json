@@ -20,6 +20,12 @@
     "stripe": "^18.4.0",
     "vercel": "^46.0.1"
   },
+  "browserslist": [
+    "chrome >= 92",
+    "firefox >= 92",
+    "safari >= 15",
+    "edge >= 92"
+  ],
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
