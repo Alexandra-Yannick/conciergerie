@@ -76,7 +76,7 @@ export function Button({ className = "", variant = "primary", href, children, ..
   const styles =
     variant === "secondary"
       ? { backgroundColor: colors.pastel, color: colors.dark }
-      : { backgroundColor: "#C04520", color: "#fff" };
+      : { backgroundColor: colors.vivid, color: "#fff" };
 
 const common = `
   inline-flex items-center justify-center gap-2
