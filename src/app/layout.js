@@ -18,11 +18,13 @@ export const metadata = {
     siteName: "Cap Conciergerie",
     locale: "fr_FR",
     type: "website",
+    images: [{ url: "https://www.cap-conciergerie.com/images/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Lancer sa conciergerie – Formation complète | Cap Conciergerie",
     description: "Découvrez la méthode pas-à-pas pour créer et rentabiliser votre activité de conciergerie. 29 h de contenu actionnable, fiches pratiques et quiz personnalisé pour vous lancer sereinement.",
+    images: ["https://www.cap-conciergerie.com/images/og-image.png"],
   },
   other: {
     'Content-Security-Policy': 'upgrade-insecure-requests',
