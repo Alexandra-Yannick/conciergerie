@@ -12,6 +12,7 @@ import TestimonialsRotator from "@/components/TestimonialsRotator";
 const colors = {
   pastel: "var(--color-pastel)",   // #D7CEC0
   vivid:  "var(--color-vivid)",    // #F45C2C
+  vividText: "#C04520",            // version foncée pour texte small (ratio AA 5:1)
   light:  "var(--color-light)",    // #F5F1ED
   dark:   "var(--color-dark)"      // #2E2E2E
 };
@@ -71,7 +72,7 @@ export default function Page() {
   const handleBuyPack = () => setSlotsLeft((s) => (s > 0 ? s - 1 : 0));
 
   return (
-    <div className="text-neutral-900" style={{ backgroundImage: `linear-gradient(to bottom, ${colors.light}, #ffffff)` }}>
+    <main className="text-neutral-900" style={{ backgroundImage: `linear-gradient(to bottom, ${colors.light}, #ffffff)` }}>
       {/* Navigation */}
       <nav className="py-4">
         <Container className="flex justify-end">
@@ -121,7 +122,7 @@ export default function Page() {
 
           <div className="lg:col-span-5">
             <Card className="p-6" bg="#ffffff" border={colors.pastel}>
-              <p className="text-sm font-semibold" style={{ color: colors.vivid }}>Pourquoi ce pack ?</p>
+              <p className="text-sm font-semibold" style={{ color: colors.vividText }}>Pourquoi ce pack ?</p>
               <ul className="space-y-3 text-sm text-neutral-700">
                 <li className="flex items-start gap-3"><Check className="mt-0.5 size-4" style={{ color: colors.vivid }} /> Un plan d’action concret pour passer de salarié à concierge indépendant</li>
                 <li className="flex items-start gap-3"><Check className="mt-0.5 size-4" style={{ color: colors.vivid }} /> Des exercices et matrices prêts à l’emploi, adaptés au marché français</li>
@@ -136,6 +137,7 @@ export default function Page() {
 
       {/* Features */}
       <Container className="py-10">
+        <h2 className="sr-only">Points forts de la formation</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {features.map((f, idx) => (
             <Card key={idx} className="p-6" bg="#ffffff" border={colors.pastel}>
@@ -206,7 +208,7 @@ export default function Page() {
           <Card className="p-6" bg="#ffffff" border={colors.vivid}>
             <div className="flex items-center justify-between">
               <Badge bg={colors.pastel} fg={colors.dark}>Pack recommandé</Badge>
-              <span className="text-xs" style={{ color: colors.vivid }}>80% choisissent cette option</span>
+              <span className="text-xs" style={{ color: colors.vividText }}>80% choisissent cette option</span>
             </div>
             <h3 className="mt-3 text-xl font-bold">Pack complet (5 modules)</h3>
             <p className="mt-1 text-sm text-neutral-600">29 h de formation + fiches pratiques exclusives</p>
@@ -224,7 +226,7 @@ export default function Page() {
           <Button className="w-full" href="/offre">
                 Commander maintenant <ArrowRight className="ml-2 inline size-4" />
           </Button>
-              <p className="mt-2 text-xs text-center" style={{ color: colors.vivid }}>
+              <p className="mt-2 text-xs text-center" style={{ color: colors.vividText }}>
                 Offre de lancement limitée aux 50 premiers clients
               </p>
             </div>
@@ -298,6 +300,6 @@ export default function Page() {
   </Link>
         </p>
       </Container>
-    </div>
+    </main>
   );
 }
