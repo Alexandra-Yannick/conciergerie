@@ -9,8 +9,8 @@ const montserrat = Montserrat({
 });
 
 export const metadata = {
-  title: "Cap Conciergerie",
-  description: "Questionnaire et modules — Édition lancement",
+  title: "Lancer sa conciergerie – Formation complète | Cap Conciergerie",
+  description: "Découvrez la méthode pas-à-pas pour créer et rentabiliser votre activité de conciergerie. 29 h de contenu actionnable, fiches pratiques et quiz personnalisé pour vous lancer sereinement.",
   other: {
     'Content-Security-Policy': 'upgrade-insecure-requests',
   },// robots: { index: false, follow: false },
