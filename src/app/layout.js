@@ -14,7 +14,7 @@ export const metadata = {
   openGraph: {
     title: "Lancer sa conciergerie – Formation complète | Cap Conciergerie",
     description: "Découvrez la méthode pas-à-pas pour créer et rentabiliser votre activité de conciergerie. 29 h de contenu actionnable, fiches pratiques et quiz personnalisé pour vous lancer sereinement.",
-    url: "https://www.capconciergerie.fr",
+    url: "https://www.cap-conciergerie.com",
     siteName: "Cap Conciergerie",
     locale: "fr_FR",
     type: "website",
